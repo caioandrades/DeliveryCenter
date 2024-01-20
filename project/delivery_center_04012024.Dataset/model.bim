@@ -1,0 +1,3551 @@
+{
+  "compatibilityLevel": 1601,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.119.986.0 (23.07)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Orders\",\"Channels\",\"Deliveries\",\"Payments\",\"Horas\",\"Calendar\",\"Medidas\",\"idiomas\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "pt-PT",
+    "cultures": [
+      {
+        "name": "pt-PT",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "a46a6c74-2d52-470a-b6ef-9eb279e80641",
+        "fromColumn": "horas",
+        "fromTable": "Orders",
+        "toColumn": "Hora",
+        "toTable": "Horas"
+      },
+      {
+        "name": "4c47f2a7-56f1-4b21-896d-8876257d5033",
+        "fromColumn": "date",
+        "fromTable": "Orders",
+        "toColumn": "Data",
+        "toTable": "Calendar"
+      },
+      {
+        "name": "3558d534-c95d-4172-8a59-7104cdd94942",
+        "fromColumn": "channel_id",
+        "fromTable": "Orders",
+        "toColumn": "channel_id",
+        "toTable": "Channels"
+      },
+      {
+        "name": "ba3de2b4-bc60-4496-a76d-a9b09653d8fe",
+        "fromColumn": "date",
+        "fromTable": "Deliveries",
+        "toColumn": "Data",
+        "toTable": "Calendar"
+      },
+      {
+        "name": "0aa0c481-a30e-4eec-8eb7-c0afbbf69239",
+        "fromColumn": "horas",
+        "fromTable": "Deliveries",
+        "toColumn": "Hora",
+        "toTable": "Horas"
+      }
+    ],
+    "sourceQueryCulture": "pt-BR",
+    "tables": [
+      {
+        "name": "Calendar",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "583afffb-860e-4895-9b5c-db2796a5960d",
+            "sourceColumn": "Ano",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Data",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "isKey": true,
+            "lineageTag": "1fe49080-dbf2-4a29-bcd2-40142c51c69c",
+            "sourceColumn": "Data",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ae665c39-1381-4297-8f43-e7f4654a1682",
+            "sourceColumn": "Mês",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Nome do Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "aab31026-9eac-4d2c-a463-4282f4906d96",
+            "sortByColumn": "Mês",
+            "sourceColumn": "Nome do Mês",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Num Mes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a1745a52-fe9f-475c-b650-f49b52a421ad",
+            "sourceColumn": "Num Mes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Número da semana do Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7252bdf4-9825-4645-bbe2-ae6ee03e3039",
+            "sourceColumn": "Número da semana do Ano",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Semana",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4faa7697-b3f9-4e2b-ad36-64cbdc1d9aba",
+            "sourceColumn": "Semana",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Semana do Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ecabd3f5-e409-4a0f-932a-33a8334f3aa8",
+            "sortByColumn": "Número da semana do Ano",
+            "sourceColumn": "Semana do Ano",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Semana do Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "cb0ed0b3-49b4-4d4f-ae58-d1202cb3d593",
+            "sourceColumn": "Semana do Mês",
+            "summarizeBy": "sum"
+          }
+        ],
+        "dataCategory": "Time",
+        "lineageTag": "2937e36a-a300-4907-933d-56ea0725d5bc",
+        "measures": [
+          {
+            "name": "texto pagina inicial",
+            "expression": [
+              "",
+              "IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"INICIAR\", \"START\")"
+            ],
+            "lineageTag": "8c19ee4e-80b7-4e98-bfc2-e0e39e2d8581"
+          },
+          {
+            "name": "texto título On-Time Delivery gráfico de disperção",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Quantidade de pedidos e On-time Rate Delivery\", \"Orders and On-Time Rate Delivery\")"
+            ],
+            "lineageTag": "8bed6fd8-0030-4174-9df7-d18779958c54"
+          },
+          {
+            "name": "texto descrição botão iniciar",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Clique aqui\", \"Click here\")"
+            ],
+            "lineageTag": "d5806695-642d-4742-b389-c48cb5f22ca4"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Calendar",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = List.Dates(#date(2021, 1, 1), 120, #duration(1, 0, 0, 0)),",
+                "    #\"Convertido em Tabela\" = Table.FromList(Origem, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    #\"Colunas com Nome Mudado\" = Table.RenameColumns(#\"Convertido em Tabela\", {{\"Column1\", \"Data\"}}),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Colunas com Nome Mudado\", {{\"Data\", type date}}),",
+                "    #\"Ano Inserido\" = Table.AddColumn(#\"Tipo Alterado\", \"Ano\", each Date.Year([Data]), Int64.Type),",
+                "    #\"Mês Inserido\" = Table.AddColumn(#\"Ano Inserido\", \"Mês\", each Date.Month([Data]), Int64.Type),",
+                "    #\"Nome do Mês Inserido\" = Table.AddColumn(#\"Mês Inserido\", \"Nome do Mês\", each Date.MonthName([Data]), type text),",
+                "    #\"Semana do Mês Inserida\" = Table.AddColumn(",
+                "        #\"Nome do Mês Inserido\", \"Semana do Mês\", each Date.WeekOfMonth([Data]), Int64.Type",
+                "    ),",
+                "    #\"Prefixo Inserido\" = Table.AddColumn(",
+                "        #\"Semana do Mês Inserida\", \"Prefixo\", each \"W\" & Text.From([Semana do Mês], \"pt-PT\"), type text",
+                "    ),",
+                "    #\"Colunas com Nome Mudado1\" = Table.RenameColumns(#\"Prefixo Inserido\", {{\"Prefixo\", \"Semana\"}}),",
+                "    #\"Semana do Ano Inserida\" = Table.AddColumn(",
+                "        #\"Colunas com Nome Mudado1\", \"Semana do Ano\", each Date.WeekOfYear([Data]), Int64.Type",
+                "    ),",
+                "    #\"Prefixo Inserido1\" = Table.AddColumn(",
+                "        #\"Semana do Ano Inserida\", \"Prefixo\", each \"W\" & Text.From([Semana do Ano], \"pt-PT\"), type text",
+                "    ),",
+                "    #\"Colunas com Nome Mudado2\" = Table.RenameColumns(",
+                "        #\"Prefixo Inserido1\", {{\"Semana do Ano\", \"Número da semana do Ano\"}, {\"Prefixo\", \"Semana do Ano\"}}",
+                "    ),",
+                "    #\"Mês Inserido1\" = Table.AddColumn(#\"Colunas com Nome Mudado2\", \"Mês.1\", each Date.Month([Data]), Int64.Type),",
+                "    #\"Colunas com Nome Mudado3\" = Table.RenameColumns(#\"Mês Inserido1\",{{\"Mês.1\", \"Num Mes\"}})",
+                "in",
+                "    #\"Colunas com Nome Mudado3\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Channels",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "channel_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "aa47ebe2-469e-42ff-a198-05388311fbd6",
+            "sourceColumn": "channel_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "channel_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "31ff01d0-155b-4c57-a162-7969cd281a11",
+            "sourceColumn": "channel_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "channel_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3eba2dcc-92bc-4831-9aaa-1051468c3d7d",
+            "sourceColumn": "channel_type",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c577aab6-7942-47f0-bfb4-17f4b701e88d",
+        "partitions": [
+          {
+            "name": "Channels",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost\", \"master\"),",
+                "    DELIVERY_channels = Origem{[Schema=\"DELIVERY\",Item=\"CHANNELS\"]}[Data]",
+                "in",
+                "    DELIVERY_channels"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Deliveries",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "avg_cicle_life",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "5bd39140-ab03-40b0-8d0f-330ebe69c81f",
+            "sourceColumn": "avg_cicle_life",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_velocity_km_per_hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "9f3ea493-cc5d-4902-adff-39f2d690c327",
+            "sourceColumn": "avg_velocity_km_per_hour",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "lineageTag": "4badde65-6eef-4a0c-bdde-37c078225d9e",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_distance_meters",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "faf99bec-b91f-420a-9a6b-a5d2fb6cbd13",
+            "sourceColumn": "delivery_distance_meters",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "delivery_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "22baeb9c-fda1-412b-96ab-ec42e45aa4ad",
+            "sourceColumn": "delivery_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "delivery_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e64dc7d9-26e1-4ab2-aedd-85c863de878e",
+            "sourceColumn": "delivery_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estimeted_cycle_life",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "AVERAGE(Deliveries[life_cycle_time])"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "eaa0a9f1-73e2-4536-8da1-970a8df8f950",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "horas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "1dd0355b-54f4-41e7-92c5-6c5c2ed93f84",
+            "sourceColumn": "horas",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_city",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "670907ea-eaf1-4a5d-915f-9a834a2a8c92",
+            "sourceColumn": "hub_city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "718d1555-ece5-4ae3-9d91-7cff768f46c1",
+            "sourceColumn": "hub_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_state",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f43faef0-8df2-413c-a007-34f5d15573d6",
+            "sourceColumn": "hub_state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_checked",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a4cedb12-a81b-4582-9dbc-c77b3bfcfd1f",
+            "sourceColumn": "is_checked",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_checked_in_full",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b0feae36-ebcc-4315-a088-9a0bcc04149a",
+            "sourceColumn": "is_checked_in_full",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "late_time_delivery",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "Deliveries[order_moment_estimated] - Deliveries[order_moment_finished]"
+            ],
+            "lineageTag": "037041a0-0698-45a5-9bfd-7e4f9e399e68",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "life_cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "Deliveries[order_moment_finished] - Deliveries[order_moment_created]"
+            ],
+            "lineageTag": "d30cf143-03e0-492a-adb3-c9e1633574a4",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "n_store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "686b417e-a779-4e9a-8a33-093fc7e74033",
+            "sourceColumn": "n_store_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "87832ecf-4f2b-4486-baa0-8017e7611dc5",
+            "sourceColumn": "order_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "4c305eea-201c-460e-921c-ea16ba683144",
+            "sourceColumn": "order_created_hour",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_delivery_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "fa2ea0a0-f415-40ba-8a6f-e30cfb1ee1f1",
+            "sourceColumn": "order_delivery_cost",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_delivery_fee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "b7a9be21-3277-4080-aa7a-68716f27a1a3",
+            "sourceColumn": "order_delivery_fee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e5d6fe87-02af-4bd9-a9d2-d9c10ae5f5bc",
+            "sourceColumn": "order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_metric_cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "de67d802-564f-4c8c-a145-deddbd1ae7aa",
+            "sourceColumn": "order_metric_cycle_time",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_metric_cycle_time_second",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "095c867a-cf59-46d0-b52f-817787266388",
+            "sourceColumn": "order_metric_cycle_time_second",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_metric_production_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "204b24ec-78c7-44fa-872b-49093da6b08e",
+            "sourceColumn": "order_metric_production_time",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_moment_created",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "d05a51f6-767d-4109-9a75-469601fea136",
+            "sourceColumn": "order_moment_created",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_estimated",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "0e9c215d-aad3-43a8-9560-52fe04002439",
+            "sourceColumn": "order_moment_estimated",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_finished",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "902ad737-74c5-468f-a29c-78c961670556",
+            "sourceColumn": "order_moment_finished",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_in_expedition",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "8382288b-b320-4478-bdda-580fdb614d95",
+            "sourceColumn": "order_moment_in_expedition",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "721eb4b0-b49e-4883-95b8-7fc7f3c41895",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "06512f9e-e484-4457-b808-119ba0a25f39",
+            "sourceColumn": "quantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "620aa3d5-cd52-462f-8a05-8b65b326a0f5",
+            "sourceColumn": "store_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "store_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2cfec1ac-ee56-4061-94f9-7b5bc24eaa0f",
+            "sourceColumn": "store_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_segment",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "825c8894-25de-460d-81ed-010c3e9a4e77",
+            "sourceColumn": "store_segment",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "eb0a9683-e81d-4175-9be5-15273be55ff6",
+        "partitions": [
+          {
+            "name": "Deliveries",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_DELIVERIES#(lf)\"]),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Origem,{{\"date\", type date}, {\"horas\", type time}, {\"order_metric_cycle_time\", Int64.Type}}),",
+                "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Tipo Alterado\",\"SHOPPING\",\"\",Replacer.ReplaceText,{\"hub_name\"})",
+                "in",
+                "    #\"Valor Substituído\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Horas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "AMPM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d8d4dff8-976b-417c-bea9-436d39636fe5",
+            "sourceColumn": "AMPM",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hora",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "2b9f88dc-c155-4ffc-bd7b-18aa1335c838",
+            "sourceColumn": "Hora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hora AMPM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "df0fab8a-641d-465c-aed7-1b602032abe2",
+            "sortByColumn": "Período",
+            "sourceColumn": "Hora AMPM",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hora Num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0",
+            "lineageTag": "06a91f34-a634-429c-a53c-e4c64787f883",
+            "sortByColumn": "Período Ordem",
+            "sourceColumn": "Hora Num",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Minuto Num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "611c0191-43df-4ad0-b265-30c4df8472eb",
+            "sourceColumn": "Minuto Num",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Período",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "29b21908-9888-46f3-89eb-b8e7fa8a09ae",
+            "sortByColumn": "Período Ordem",
+            "sourceColumn": "Período",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Período Ordem",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "28516f29-d6d4-4ec0-9649-d17c4f0e5279",
+            "sourceColumn": "Período Ordem",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Segundo Num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6a5cea4b-bc30-4b6a-a657-c103fa3af209",
+            "sourceColumn": "Segundo Num",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Índice",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6da0e022-088a-4ae5-9e50-732a5607eb34",
+            "sourceColumn": "Índice",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "8d14729a-743d-46db-9e6e-bcde050ca2a5",
+        "partitions": [
+          {
+            "name": "Horas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Lista = {0..86399},",
+                "    ConverteParaTabela = Table.FromList(Lista, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    AlteraTipo = Table.TransformColumnTypes(ConverteParaTabela, {{\"Column1\", Int64.Type}}),",
+                "    AlteraNomeCol = Table.RenameColumns(AlteraTipo, {{\"Column1\", \"Segundo\"}}),",
+                "    ColDuracao = Table.AddColumn(AlteraNomeCol, \"Duração\", each #duration(0, 0, 0, [Segundo]), type duration),",
+                "    ColHora = Table.AddColumn(",
+                "        ColDuracao,",
+                "        \"Hora\",",
+                "        each #time(Duration.Hours([Duração]), Duration.Minutes([Duração]), Duration.Seconds([Duração])),",
+                "        type time",
+                "    ),",
+                "    RemoveCols = Table.RemoveColumns(ColHora, {\"Duração\", \"Segundo\"}),",
+                "    ColHoraNum = Table.AddColumn(RemoveCols, \"Hora Num\", each Time.Hour([Hora]), Int64.Type),",
+                "    ColMinutoNum = Table.AddColumn(ColHoraNum, \"Minuto Num\", each Time.Minute([Hora]), Int64.Type),",
+                "    ColSegundoNum = Table.AddColumn(ColMinutoNum, \"Segundo Num\", each Time.Second([Hora]), Int64.Type),",
+                "    ColAMPM = Table.AddColumn(ColSegundoNum, \"AMPM\", each if [Hora Num] < 12 then \"AM\" else \"PM\", type text),",
+                "    ColHoraAMPM = Table.AddColumn(",
+                "        ColAMPM,",
+                "        \"Hora AMPM\",",
+                "        each",
+                "            if [Hora Num] = 0 then",
+                "                \"12 AM\"",
+                "            else if [Hora Num] >= 1 and [Hora Num] <= 11 then",
+                "                Number.ToText([Hora Num]) & \" AM\"",
+                "            else if [Hora Num] = 12 then",
+                "                \"12 PM\"",
+                "            else if [Hora Num] >= 13 then",
+                "                Number.ToText([Hora Num] - 12) & \" PM\"",
+                "            else",
+                "                \"Unknown\",",
+                "        type text",
+                "    ),",
+                "    ColPeriodo = Table.AddColumn(",
+                "        ColHoraAMPM,",
+                "        \"Período\",",
+                "        each",
+                "            if [Hora Num] >= 0 and [Hora Num] <= 5 then",
+                "                \"12AM to 6AM\"",
+                "            else if [Hora Num] >= 6 and [Hora Num] <= 11 then",
+                "                \"6AM to 12PM\"",
+                "            else if [Hora Num] >= 12 and [Hora Num] <= 17 then",
+                "                \"12PM to 6PM\"",
+                "            else if [Hora Num] >= 18 and [Hora Num] <= 23 then",
+                "                \"6PM to 12AM\"",
+                "            else",
+                "                \"Unknown\",",
+                "        type text",
+                "    ),",
+                "    #\"Valor Substituído\" = Table.ReplaceValue(ColPeriodo,0,24,Replacer.ReplaceValue,{\"Hora Num\"}),",
+                "    ColPeriodoOrdem = Table.AddColumn(",
+                "        #\"Valor Substituído\",",
+                "        \"Período Ordem\",",
+                "        each",
+                "            if [Hora Num] >= 0 and [Hora Num] <= 5 then",
+                "                1",
+                "            else if [Hora Num] >= 6 and [Hora Num] <= 11 then",
+                "                2",
+                "            else if [Hora Num] >= 12 and [Hora Num] <= 17 then",
+                "                3",
+                "            else if [Hora Num] >= 18 and [Hora Num] <= 23 then",
+                "                4",
+                "            else",
+                "                5,",
+                "        Int64.Type",
+                "    ),",
+                "    #\"Índice Adicionado\" = Table.AddIndexColumn(ColPeriodoOrdem, \"Índice\", 0, 1, Int64.Type)",
+                "in",
+                "    #\"Índice Adicionado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Medidas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "lineageTag": "25b5b65d-f6a8-4ba8-b4ae-ea6c57546e32",
+        "measures": [
+          {
+            "name": "% faturado",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [R$ Faturamento pedidos],",
+              "    [R$ Faturamento pedidos] + [R$ não faturado]",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "918fbccb-3387-40af-9743-ca681dd5d080"
+          },
+          {
+            "name": "R$ Faturamento pedidos",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    --- order_amout +  delivery_fee",
+              "    [Receita total],",
+              "    FILTER(ALL(Orders[order_status]),",
+              "    Orders[order_status] = \"FINISHED\"",
+              "    )",
+              ")"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
+                "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
+              ]
+            },
+            "lineageTag": "76f7f7e8-3fde-4126-9b58-709e1338cc12"
+          },
+          {
+            "name": "R$ pagamento",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM(Payments[payment_amount]),",
+              "    FILTER(",
+              "        ALL(Payments[payment_status]),",
+              "        Payments[payment_status] = \"PAID\"",
+              "    )",
+              ")"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
+                "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
+              ]
+            },
+            "lineageTag": "59e6edfd-890c-407e-9e0a-5314ad4f1a28"
+          },
+          {
+            "name": "% de Cancelamento",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "/* Para calcular o percenntual de cancelamento, estamos dividindo a quantidade total de pedidos pela quantidade de pedidos cancelados*/",
+              "var vFat =DIVIDE(",
+              "        CALCULATE(",
+              "        [Receita total], ",
+              "        FILTER(ALL(Orders[order_status]),",
+              "        Orders[order_status] = \"CANCELED\")) -- total de faturamento cancelado",
+              "    ,",
+              "    [Receita total] -- total de faturamento",
+              ")",
+              "var vfat2 =",
+              "DIVIDE(",
+              "    [R$ não faturado],",
+              "    [R$ não faturado] + [Receita total]",
+              ")",
+              "return ",
+              "vfat2"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "e32c283d-f806-4a56-a1f3-2e081630660e"
+          },
+          {
+            "name": "Cancelamento",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Quantidade de pedidos],",
+              "    FILTER(",
+              "        ALL(Orders[order_status]),",
+              "        Orders[order_status] = \"CANCELED\")",
+              ")"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",",
+                "     \"#0; - #0\"",
+                ")",
+                "return",
+                "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
+              ]
+            },
+            "lineageTag": "e57f7bb5-298c-4cca-8e92-b7c0009fb22f"
+          },
+          {
+            "name": "R$ não faturado",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "/* Receita bruta não faturada são as receitas dos pedidos cancelados*/",
+              " CALCULATE(",
+              "     [Receita total],",
+              "     FILTER(",
+              "         ALL(Orders[order_status]),",
+              "         Orders[order_status] = \"CANCELED\"",
+              "     )",
+              " )"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
+                "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
+              ]
+            },
+            "lineageTag": "85a4ce13-1e9b-4964-bb6c-bf36c96a01d4"
+          },
+          {
+            "name": "% não faturado",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "var vFat =DIVIDE(",
+              "        CALCULATE(",
+              "        [Receita total], ",
+              "        FILTER(ALL(Orders[order_status]),",
+              "        Orders[order_status] = \"CANCELED\")) -- total de faturamento cancelado",
+              "    ,",
+              "    [Receita total] -- total de faturamento",
+              ")",
+              "--- existem duas formas de resolver esse problema",
+              "var vfat2 =",
+              "DIVIDE(",
+              "    [R$ não faturado],",
+              "    [R$ não faturado] + [Receita total]",
+              ")",
+              "return ",
+              "vFat"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "c017b9f1-5cdc-4c4b-b5e0-0ef2c78eeddd"
+          },
+          {
+            "name": "Receita total",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "--- payment = order_amount + delivery_fee ",
+              "",
+              "SUM(Orders[order_amount])"
+            ],
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "965427b3-0ea2-41bc-ba20-6f80e444cc56"
+          },
+          {
+            "name": "% PGTO vs FAT",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [R$ Faturamento pedidos],",
+              "    [R$ pagamento],",
+              "    0",
+              ")"
+            ],
+            "lineageTag": "aa79811e-326f-416f-9560-7f056fbbf262"
+          },
+          {
+            "name": "payment_amount",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "SUM(Payments[payment_amount])"
+            ],
+            "lineageTag": "ff917ec6-65ab-4ba6-93fa-2decab00b5de"
+          },
+          {
+            "name": "EIXO Y LINHAS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Ano], 'Calendar'[Mês], 'Calendar'[Nome do Mês], 'Calendar'[Semana], 'Calendar'[Semana do Ano])",
+              "var vValorMax = MAXX(vTabela, [R$ Faturamento pedidos])",
+              "var vDeslocamento = 1.4 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "e7859a0c-178e-4037-b6f7-50c47b281360"
+          },
+          {
+            "name": "EIXO Y SEC LINHAS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Ano], 'Calendar'[Mês], 'Calendar'[Nome do Mês], 'Calendar'[Semana], 'Calendar'[Semana do Ano])",
+              "var vValorMax = MAXX(vTabela, [R$ não faturado])",
+              "var vDeslocamento = 1.4 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "a3c5fd47-960e-4f53-ab83-23bc196f243c"
+          },
+          {
+            "name": "Barra Progresso Fat",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValor =            ",
+              "    [% faturado]",
+              "",
+              "VAR vValor_formatado =      ",
+              "    FORMAT( vValor, \"0.00%\" ) ",
+              "",
+              "VAR vMeta =            ",
+              "    1",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"RECEITA FATURADA:\"",
+              "VAR vRotulo_categoria_cor = \"#3f3f3f\"",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "",
+              "VAR vRotulo_dados_cor = \"#3f3f3f\"",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 110",
+              "",
+              "",
+              "VAR vBarra_altura = 15",
+              "",
+              "VAR vBarra_progresso_cor = \"#21A0AA\"",
+              "",
+              "VAR vBarra_fundo_cor = \"#DCDCDC\"",
+              "VAR vBarra_fundo_opacidade = 9",
+              "",
+              "VAR vLinha_meta_larg = 3",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "",
+              "",
+              "RETURN ",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='70' viewBox='0 0 200 70' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Barra de Fundo -->",
+              "     <rect id='f001' x='0' y='15' width='\" & MIN(190, MAX(0, ROUND(131 * vMeta, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_fundo_cor & \"' opacity='0.\" & vBarra_fundo_opacidade & \"' rx='5' ry='5' />",
+              "",
+              "    <!-- Barra de Progresso -->",
+              "    <rect id='f002' x='0' y='15' width='\" & MIN(190, MAX(0, ROUND(131 * vValor, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_progresso_cor & \"' rx='5' ry='5' />",
+              "",
+              "    <!-- Linha de Meta -->",
+              "    <!-- <rect id='f005' x='\" & MIN(190, MAX(0, ROUND(131 * vMeta, 0))) & \" ' y='11' width='\" & vLinha_meta_larg & \"' height='\" & vBarra_altura + 10 & \"' fill='\" & vLinha_meta_cor & \"' /> -->",
+              "",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='0' y='50'> \" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "",
+              "    <!-- Texto de Dados -->",
+              "    <text id='f004' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'>",
+              "        <tspan x='\" & vRotulo_dados_posicao & \"' y='50'>\" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "</svg>",
+              "\"",
+              ""
+            ],
+            "lineageTag": "9b210830-ba7f-469e-b06c-b921c68bf563"
+          },
+          {
+            "name": "Barra Progresso Cancel",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValor =            ",
+              "    [% não faturado]",
+              "",
+              "VAR vValor_formatado =      ",
+              "    FORMAT( vValor, \"0.00%\" ) ",
+              "",
+              "VAR vMeta =            ",
+              "    1 ",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"RECEITA CANCELADA:\"",
+              "VAR vRotulo_categoria_cor = \"#3f3f3f\"",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "",
+              "VAR vRotulo_dados_cor = \"#3f3f3f\"",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 120",
+              "",
+              "",
+              "VAR vBarra_altura = 15",
+              "",
+              "VAR vBarra_progresso_cor = \"#F94F46\"",
+              "",
+              "VAR vBarra_fundo_cor = \"#DCDCDC\"",
+              "VAR vBarra_fundo_opacidade = 9",
+              "",
+              "VAR vLinha_meta_larg = 3",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "",
+              "-- <rect id='f002' x='0' y='37' width='\" & MIN(190, MAX(0, ROUND(131 * vValor, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_progresso_cor & \"' rx='5' ry='5' />",
+              "",
+              "",
+              "RETURN ",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='70' viewBox='0 0 200 70' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Barra de Fundo -->",
+              "     <rect id='f001' x='0' y='15' width='\" & MIN(190, MAX(0, ROUND(131 * vMeta, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_fundo_cor & \"' opacity='0.\" & vBarra_fundo_opacidade & \"' rx='5' ry='5' />",
+              "",
+              "    <!-- Barra de Progresso -->",
+              "    <rect id='f002' x='0' y='15' width='\" & MIN(190, MAX(0, ROUND(131 * vValor, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_progresso_cor & \"' rx='5' ry='5' />",
+              "",
+              "    <!-- Linha de Meta -->",
+              "    <!-- <rect id='f005' x='\" & MIN(190, MAX(0, ROUND(131 * vMeta, 0))) & \" ' y='11' width='\" & vLinha_meta_larg & \"' height='\" & vBarra_altura + 10 & \"' fill='\" & vLinha_meta_cor & \"' /> -->",
+              "",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='0' y='50'> \" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "",
+              "    <!-- Texto de Dados -->",
+              "    <text id='f004' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'>",
+              "        <tspan x='\" & vRotulo_dados_posicao & \"' y='50'>\" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "</svg>",
+              "\""
+            ],
+            "lineageTag": "8d043706-35ff-4c79-9655-7d95a07de875"
+          },
+          {
+            "name": "Rotulos grafico de linhas",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Ano],'Calendar'[Semana do Ano],'Calendar'[Número da semana do Ano], 'Calendar'[Mês],'Calendar'[Nome do Mês])",
+              "var vValorMaximo = MAXX(vTabela, ([R$ Faturamento pedidos]))",
+              "return ",
+              "IF(vValorMaximo = [R$ Faturamento pedidos], vValorMaximo, BLANK())"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
+                "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
+              ]
+            },
+            "lineageTag": "f9a67cd1-c059-48c7-ad22-d8219b3939e9"
+          },
+          {
+            "name": "Rotulos grafico de linhas cancelamento",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Ano],'Calendar'[Semana do Ano],'Calendar'[Número da semana do Ano], 'Calendar'[Mês],'Calendar'[Nome do Mês])",
+              "var vValorMaximo = MAXX(vTabela, ([R$ não faturado]))",
+              "return ",
+              "IF(vValorMaximo = [R$ não faturado], vValorMaximo, BLANK())"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
+                "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
+              ]
+            },
+            "lineageTag": "ad2594c1-4b46-4035-bd85-1badb592a833"
+          },
+          {
+            "name": "Subtítulo",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Ano],'Calendar'[Número da semana do Ano],'Calendar'[Semana do Ano])",
+              "VAR vMAX  = MAXX(vTabela, [R$ Faturamento pedidos])",
+              "",
+              "return ",
+              "",
+              " \"O valor máximo de faturamento foi de \" & vMAX"
+            ],
+            "lineageTag": "e58ae9fb-5ccd-486c-859d-b8fb9efe4ba4"
+          },
+          {
+            "name": "Quantidade de hubs",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "COUNTROWS(DISTINCT(Orders[hub_name]))"
+            ],
+            "formatString": "0",
+            "lineageTag": "3c956dd2-feea-4b64-b20b-84f1087f53c4"
+          },
+          {
+            "name": "Quantidade de lojas",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "COUNTROWS(DISTINCT(Orders[store_id]))"
+            ],
+            "formatString": "0",
+            "lineageTag": "0932b220-a551-4f8e-a3a9-e90b91fa899c"
+          },
+          {
+            "name": "MaximoFaturado",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              " ",
+              " var vTabela = ALLSELECTED('Calendar'[Ano],'Calendar'[Número da semana do Ano],'Calendar'[Semana do Ano])",
+              " var vValorMaximo = MAXX(vTabela, [R$ Faturamento pedidos])",
+              "",
+              " return",
+              "FORMAT(vValorMaximo, \"#.##\")",
+              ""
+            ],
+            "lineageTag": "70e5f6d8-9176-4c6f-a389-2be504a78db4"
+          },
+          {
+            "name": "Eixo R$ faturado",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "FORMAT(CALCULATE(",
+              "    [Receita total],",
+              "    FILTER(ALL(Orders[order_status]),",
+              "    Orders[order_status] = \"FINISHED\"",
+              "    )",
+              "), \"#.##\")"
+            ],
+            "lineageTag": "15619095-6df0-4fd7-b4d3-63f548372d06"
+          },
+          {
+            "name": "faturado",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Receita total],",
+              "    FILTER(ALL(Orders[order_status]),",
+              "    Orders[order_status] = \"FINISHED\"",
+              "    )",
+              ")"
+            ],
+            "formatString": "\"R$\"\\ #,0.00;-\"R$\"\\ #,0.00;\"R$\"\\ #,0.00",
+            "lineageTag": "6371fc67-c50e-4422-b463-7c469819ad00"
+          },
+          {
+            "name": "Custo de entrega",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "SUM(Deliveries[order_delivery_cost])"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
+                "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
+              ]
+            },
+            "lineageTag": "dcef949e-1919-4168-99d5-dc1ca5fc4fee"
+          },
+          {
+            "name": "% Custo de entrega dos pedidos",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Custo de entrega], ",
+              "    [Receita total]",
+              ") "
+            ],
+            "lineageTag": "a68a5925-76af-4fa0-9be7-f52462cfeca8"
+          },
+          {
+            "name": "Tempo médio de ciclo do pedido",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isCustom\":true}"
+              }
+            ],
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* Order cycle time calcula o tempo médio entre a abertura do pedido até a entrega efetiva do pedido */ ",
+              "VAR vSegundosTotal = AVERAGE(Deliveries[life_cycle_time]) * 86400 -- 86400 quantidade de segundos em um dia",
+              "VAR vHoras = INT(vSegundosTotal/3600)  -- 3600 quantidade de segundos em horas",
+              "VAR vMinutos = INT(MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
+              "VAR vSegundos = INT(MOD(MOD(vSegundosTotal, 3600), 60))",
+              "return",
+              "CONVERT(vHoras & RIGHT(\"0\"&vMinutos,2), INTEGER)"
+            ],
+            "formatString": "00 min",
+            "lineageTag": "cacf3a0c-0e82-4f3a-8e15-13328d9123ce"
+          },
+          {
+            "name": "Ticket médio",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "DIVIDE([R$ Faturamento pedidos], [Quantidade de pedidos])"
+            ],
+            "formatStringDefinition": {
+              "expression": [
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
+                "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
+              ]
+            },
+            "lineageTag": "6dad394f-9c4e-4d86-ba61-cb2465396a0e"
+          },
+          {
+            "name": "Quantidade de pedidos cancelados",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNTROWS(DISTINCT(Deliveries[order_id])),",
+              "    FILTER(ALL(Deliveries[order_status]),",
+              "    Deliveries[order_status] = \"CANCELED\"",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "1c7dec56-3bf4-437f-9c99-b9ceaf9687d6"
+          },
+          {
+            "name": "Quantidade de entregas",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* ",
+              "Os filtros aplicados a função traduz a necessidade de analisar apenas os pedidos que foram realmente entregues ",
+              "para considerar um pedido entregue é necessário que a o status do pedidos seja FINISHED e a status de delivery seja DELIVERED    ",
+              "*/ ",
+              "CALCULATE(",
+              "    [Quantidade de pedidos],",
+              "    FILTER(ALL(Deliveries[order_status],Deliveries[delivery_status]),",
+              "    Deliveries[order_status] = \"FINISHED\" && Deliveries[delivery_status] = \"DELIVERED\"",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "3fc6fc01-db46-4780-8fdd-8da5f9c9637e"
+          },
+          {
+            "name": "Quantidade de pedidos",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "SUM(Deliveries[quantity])"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "8afda813-8c06-43f9-9bed-35b43cc07b86"
+          },
+          {
+            "name": "Barra Progresso custo de entrega",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vReceita =",
+              "    [Receita total]",
+              "",
+              "var vReceitaFormatada = ",
+              "    FORMAT(vReceita, \"R$00,00\")",
+              "    ",
+              "VAR vValor =            ",
+              "    [Tempo médio de ciclo do pedido]",
+              "",
+              "VAR vValor_formatado =      ",
+              "    FORMAT( vValor, \"## min\" ) ",
+              "",
+              "VAR vMeta =            ",
+              "    1",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"RECEITA CANCELADA:\"",
+              "VAR vRotulo_categoria_cor = \"#3f3f3f\"",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "",
+              "VAR vRotulo_dados_cor = \"#3f3f3f\"",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 120",
+              "",
+              "",
+              "VAR vBarra_altura = 15",
+              "",
+              "VAR vBarra_progresso_cor = \"#F94F46\"",
+              "",
+              "VAR vBarra_fundo_cor = \"#DCDCDC\"",
+              "VAR vBarra_fundo_opacidade = 9",
+              "",
+              "VAR vLinha_meta_larg = 3",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "",
+              "-- <rect id='f002' x='0' y='37' width='\" & MIN(190, MAX(0, ROUND(131 * vValor, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_progresso_cor & \"' rx='5' ry='5' />",
+              "",
+              "",
+              "RETURN ",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='70' viewBox='0 0 200 70' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Barra de Fundo -->",
+              "    <rect id='f001' x='0' y='15' width='\" & MIN(190, MAX(0, ROUND(131 * vMeta, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_fundo_cor & \"' opacity='0.\" & vBarra_fundo_opacidade & \"' rx='5' ry='5' />",
+              "",
+              "    <!-- Barra de Progresso -->",
+              "    <rect id='f002' x='0' y='15' width='\" & MIN(190, MAX(0, ROUND(131 * vValor, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_progresso_cor & \"' rx='5' ry='5' />",
+              "",
+              "    <!-- Linha de Meta -->",
+              "    <!-- <rect id='f005' x='\" & MIN(190, MAX(0, ROUND(131 * vMeta, 0))) & \" ' y='11' width='\" & vLinha_meta_larg & \"' height='\" & vBarra_altura + 10 & \"' fill='\" & vLinha_meta_cor & \"' /> -->",
+              "",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='0' y='50'> \" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "",
+              "    <!-- Texto de Dados -->",
+              "    <text id='f004' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'>",
+              "        <tspan x='\" & vRotulo_dados_posicao & \"' y='50'>/ \" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "    <!-- Novo Texto para a Linha de Progresso -->",
+              "    <text id='novoTexto' fill='\"& vLinha_meta_cor &\"' font-family='\" & vFonte &\"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'>",
+              "        <tspan x='\" & MIN(190, MAX(0, ROUND(131 * vValor, 0))) & \"' y='25'> & vRotulo_categoria_texto & </tspan>",
+              "    </text>",
+              "</svg>",
+              "",
+              "\"",
+              ""
+            ],
+            "lineageTag": "3836d06e-e025-4e6e-9a30-c32e0408be9c"
+          },
+          {
+            "name": "Receita total Deliveries",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "SUM(Deliveries[order_amount])"
+            ],
+            "lineageTag": "afad751c-3a3f-415c-b38e-c1171403368f"
+          },
+          {
+            "name": "Quantidade média de pedidos",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    COUNTROWS(",
+              "    DISTINCT(Deliveries[order_id])",
+              "        ),",
+              "         AVERAGE(Deliveries[quantity])",
+              "    )"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "732e4621-c257-4922-94fd-d0d7fc606b31"
+          },
+          {
+            "name": "EIXO Y LINHAS BARRAS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Horas'[Hora Num])",
+              "var vValorMax = MAXX(vTabela, [Quantidade média de pedidos])",
+              "var vDeslocamento = 1.4 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "6d50cd62-cd01-4d67-a87c-374e3149b05b"
+          },
+          {
+            "name": "EIXO Y LINHAS BARRAS SECUNDARIO",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Horas'[Hora Num])",
+              "var vValorMax = MAXX(vTabela, [On-Time Delivery])",
+              "var vDeslocamento = 1.4 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "a8802da2-a00b-44e5-a94d-5b4038bc50f2"
+          },
+          {
+            "name": "Velocidade média",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "ROUND(DIVIDE(",
+              "    SUM(Deliveries[delivery_distance_meters]),",
+              "    [Tempo médio de ciclo do pedido] ,",
+              "    0",
+              "),",
+              "0)"
+            ],
+            "lineageTag": "d3aff647-95d4-4e44-b4d0-2b7834b34f82"
+          },
+          {
+            "name": "Quantidade de pedidos dentro do prazo",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Quantidade de pedidos],",
+              "    FILTER(ALL(Deliveries[is_checked]),",
+              "    Deliveries[is_checked] = \"TRUE\"",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "2b73d2f6-02c7-4f7b-a950-c1abbae66ad2"
+          },
+          {
+            "name": "On-Time Delivery",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* On-time Delivery é a taxa de entregas realizadas dentro do prazo estimado */",
+              "DIVIDE([Quantidade de pedidos dentro do prazo], [Quantidade de entregas])"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "697246d9-0207-41ed-b671-4596dc73f98c"
+          },
+          {
+            "name": "Quantidade de pedidos fora do prazo",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Quantidade de pedidos],",
+              "    FILTER(ALL(Deliveries[is_checked]),",
+              "    Deliveries[is_checked] = \"FALSE\"",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "f97a25a7-ed6e-4c85-96a3-ba05308434ec"
+          },
+          {
+            "name": "Lojas críticas",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [On-Time Delivery], ",
+              "    FILTER(",
+              "        KEEPFILTERS(ALL(Deliveries[hub_name])),",
+              "         [On-Time Delivery] < 0.85",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "e485484a-a9be-474a-a7d6-a9b46b250ecc"
+          },
+          {
+            "name": "Hub crítico (RANKX)",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "var vRankingHub = RANKX(ALL(Deliveries[hub_name]),[On-Time Delivery],,ASC,Skip)",
+              "RETURN ",
+              "CALCULATE(",
+              "    [On-Time Delivery],",
+              "    FILTER(",
+              "        KEEPFILTERS(VALUES(Deliveries[hub_name])),",
+              "        vRankingHub <= [Valor de TOPN]",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0%;-0.0%;0.0%",
+            "lineageTag": "9593d401-6464-4224-b27c-e622aaa5ea5c"
+          },
+          {
+            "name": "Hub Crítico (TOPN)",
+            "displayFolder": "Financeiro",
+            "expression": [
+              "",
+              "var vRankingHUb = RANKX(ALL(Deliveries[hub_name]), [On-Time Delivery],,ASC,Skip)",
+              "return",
+              "CALCULATE(",
+              "    [On-Time Delivery],",
+              "    KEEPFILTERS(TOPN('TOPN'[Valor de TOPN], ALL(Deliveries[hub_name]), [On-Time Delivery]))",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "f1b86730-d362-40de-a169-f96d91f4d1ca"
+          },
+          {
+            "name": "EIXO Y BARRAS HORIZONTAIS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED(Deliveries[hub_name])",
+              "var vValorMax = MAXX(vTabela, [On-Time Delivery])",
+              "var vDeslocamento = 1.4 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "9c2f6c7c-e3ec-4f37-a74f-791a3eea4bed"
+          },
+          {
+            "name": "Order Fill Rate",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isCustom\":true}"
+              }
+            ],
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* Oder Fill Rate calcula o tempo médio para a separação de um pedido (data de abertura até data de expedição) */",
+              "AVERAGEX(",
+              "    Deliveries,",
+              "    DATEDIFF(Deliveries[order_moment_created], Deliveries[order_moment_in_expedition], MINUTE)",
+              ")"
+            ],
+            "formatString": "## min",
+            "lineageTag": "7fb93e6c-ce7a-4351-b35e-884dc9a425a2"
+          },
+          {
+            "name": "% In full",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* ",
+              "In full é a taxa de pedidos entregues sem nenhuma ororrência ou devolução. ",
+              "Existem casos em que o pedido foi entregue e o status do pedido está como cancelados. Nestes casos consideramos que o pedido foi devolvido ou cancelado",
+              "*/",
+              "var vInFull =",
+              "CALCULATE(",
+              "    [Quantidade de pedidos],",
+              "    Deliveries[is_checked_in_full] = 0",
+              ")",
+              "RETURN",
+              "DIVIDE(vInFull, [Quantidade de pedidos])"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "556123f1-aba7-45dd-b7eb-2dccdb810839"
+          },
+          {
+            "name": "OnTime-InFull",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "[On-Time Delivery] * [% In full]"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "219288f5-807c-4074-8512-aee2506bb199"
+          },
+          {
+            "name": "Barra progresso entregas",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValorTempo =            ",
+              "    [Tempo médio de ciclo do pedido]",
+              "",
+              "VAR vValor =            ",
+              "    [On-Time Delivery]",
+              "",
+              "VAR vValor_formatado =      ",
+              "    FORMAT( vValorTempo, \"## min\" ) ",
+              "",
+              "VAR vMeta =            ",
+              "    0.9",
+              "",
+              "VAR vBarra =            ",
+              "    1",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"CMV:\"",
+              "VAR vRotulo_categoria_cor = \"#3f3f3f\"",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_categoria_meta = IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Meta: 90%\", \"Goal: 90%\")",
+              "",
+              "VAR vRotulo_dados_cor = \"#3f3f3f\"",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 35",
+              "",
+              "",
+              "VAR vBarra_altura = 10",
+              "",
+              "VAR vBarra_progresso_cor = [Cor das bolhas]",
+              "",
+              "VAR vBarra_fundo_cor = \"#DCDCDC\"",
+              "VAR vBarra_fundo_opacidade = 9",
+              "",
+              "VAR vLinha_meta_larg = 1",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "",
+              "",
+              "RETURN ",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='70' viewBox='0 0 200 70' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "   ",
+              "    <!-- Barra de Fundo -->",
+              "    <rect id='f001' x='0' y='8' width='\" & MIN(190, MAX(0, ROUND(131 * vBarra, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_fundo_cor & \"' opacity='0.\" & vBarra_fundo_opacidade & \"' rx='5' ry='5' />",
+              "    <!-- Barra de Progresso -->",
+              "    <rect id='f002' x='0' y='8' width='\" & MIN(190, MAX(0, ROUND(131 * vValor, 0))) & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_progresso_cor & \"' rx='5' ry='5' />",
+              "    ",
+              "    <!-- Linha de Meta -->",
+              "    <rect id='f005' x='0\" & MIN( 190,  MAX( 0, ROUND( 131 * vMeta , 0 ) ) )  & \" ' y='04' width='\" & vLinha_meta_larg & \"' height='\" & vBarra_altura + 10 & \"' fill='\" & vLinha_meta_cor & \"' />",
+              "    ",
+              "    <!-- Texto da Categoria Meta -->",
+              "    <text id='f006' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='135' y='17'> \" & vRotulo_categoria_meta & \"</tspan>",
+              "    </text>",
+              "",
+              "    <!-- Texto 'Receita' -->",
+              "    <!-- <text id='receitaText' fill='\"& vRotulo_categoria_cor &\"' font-family='\"& vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='0' y='15'>Receita:</tspan>",
+              "    </text> -->",
+              "    ",
+              "    <!-- Texto da Categoria -->",
+              "    <!-- <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='0' y='55'> \" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text> -->",
+              "    ",
+              "    <!-- Texto de Dados -->",
+              "   <!-- <text id='f004' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'>",
+              "        <tspan x='\" & vRotulo_dados_posicao & \"' y='55'>\" & vValor_formatado & \"</tspan> ",
+              "    </text> -->",
+              "</svg>",
+              "\"",
+              ""
+            ],
+            "lineageTag": "3d636321-9cbb-4764-b063-277988069db8"
+          },
+          {
+            "name": "Barra Progresso",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "",
+              "/* --------------------------------------------------------------------------",
+              "DESENVOLVIDO POR JEFFERSON ALVES || DADOS CRIATIVOS ",
+              "",
+              "Caso queira aprender do ZERO a criar este código e muito outros do Absoluto zero, te convido a fazer parte do meu treinamento fechado, Lá ofereço uma instrução detalhada, guiando você em cada etapa do processo. ",
+              "",
+              "Link para iniciar essa jornada de aprendizado:",
+              "",
+              "https://bit.ly/DashsCriativos",
+              "",
+              "",
+              "--------------------------",
+              "",
+              "Redes Sociais (dê aquela moral galera)",
+              "",
+              "► Instagram: https://www.instagram.com/dadoscriativos_/",
+              "",
+              "► Linkedin: https://www.linkedin.com/in/jeffersonallvesneves/",
+              "",
+              "► YouTube: https://www.youtube.com/c/JeffersonAlvesDadosCriativos",
+              "",
+              "► Grupo Telegram: https://t.me/dadoscriativos",
+              "",
+              "-------------------------------------------------------------------------- */",
+              "",
+              "",
+              "VAR vValor =            ",
+              "    0.5 ",
+              "",
+              "VAR vValor_formatado =      ",
+              "    FORMAT( vValor, \"0%\" ) ",
+              "",
+              "VAR vMeta =            ",
+              "    1 ",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Cambria \"",
+              "",
+              "VAR vRotulo_categoria_texto = \"Target: \"",
+              "VAR vRotulo_categoria_cor = \"#3f3f3f\"",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "",
+              "VAR vRotulo_dados_cor = \"#3f3f3f\"",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 40",
+              "",
+              "",
+              "VAR vBarra_altura = 10",
+              "",
+              "VAR vBarra_progresso_cor = \"orange\"",
+              "",
+              "VAR vBarra_fundo_cor = \"#6f6f6f\"",
+              "VAR vBarra_fundo_opacidade = 9",
+              "",
+              "VAR vLinha_meta_larg = 2",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "RETURN ",
+              "",
+              "\"data:image/svg+xml;utf8,<svg width='200' height='70' viewBox='0 0 200 70' fill='none' xmlns='http://www.w3.org/2000/svg'><rect id='f001' x='0' y='37' width='190' height='\" & vBarra_altura & \"' fill='\" & vBarra_fundo_cor & \"'",
+              "opacity='0.\" & vBarra_fundo_opacidade& \"' /><rect id='f002' x='0' y='37' width='\" & MIN( 190,  MAX( 0, ROUND( 131 * vValor, 0 ) ) )  & \"' height='\" & vBarra_altura & \"' fill='\" & vBarra_progresso_cor & \"' /><text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'><tspan x='0' y='28'> \" & vRotulo_categoria_texto & \"</tspan></text><text id='f004' fill='\" & vRotulo_dados_cor& \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'><tspan x='\" & vRotulo_dados_posicao & \"' y='28'>\" & vValor_formatado & \"</tspan></text><rect id='f005' x='\" & MIN( 190,  MAX( 0, ROUND( 131 * vMeta , 0 ) ) )  & \" ' y='32' width='\" & vLinha_meta_larg & \"' height='\" & vBarra_altura + 10 & \"' fill='\" & vLinha_meta_cor & \"' /></svg>\""
+            ],
+            "lineageTag": "8229f5b1-f30f-40de-a02c-46025d67bf73"
+          },
+          {
+            "name": "Tempo médio de atraso",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isCustom\":true}"
+              }
+            ],
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* Oder Fill Rate calcula o tempo médio para a separação de um pedido (data de abertura até data de expedição) */",
+              "CALCULATE(",
+              "    AVERAGEX(",
+              "        Deliveries,",
+              "        DATEDIFF(Deliveries[order_moment_estimated], Deliveries[order_moment_finished],MINUTE)),",
+              "        FILTER(ALL(Deliveries[is_checked]),",
+              "        Deliveries[is_checked] = \"FALSE\")",
+              ")"
+            ],
+            "formatString": "## min",
+            "lineageTag": "e07e0eb1-877a-4b25-97bc-4f7edc396fc5"
+          },
+          {
+            "name": "EIXO Y BARRAS HORIZONTAIS OnTime",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vValorMax = MAXX(vTabela, [On-Time Delivery])",
+              "var vDeslocamento = 1.4 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "29126fb5-c563-4056-b074-88da2f30e51e"
+          },
+          {
+            "name": "EIXO Y BARRAS HORIZONTAIS OnTime 2",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vValorMax = MAXX(vTabela, [Quantidade de entregas])",
+              "var vDeslocamento = 1.2 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "a2e7f41e-7350-4d6b-818c-5ac127f13936"
+          },
+          {
+            "name": "EIXO Y Disperção",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vValorMax = MAXX(vTabela, [On-Time Delivery])",
+              "var vDeslocamento = 1.1 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "fe8aef0b-2dab-488d-84dc-7b020b8c89c9"
+          },
+          {
+            "name": "EIXO Y Disperção Min",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vValorMax = minX(vTabela, [On-Time Delivery])",
+              "var vDeslocamento = 0.9 ",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "6352a4fe-ab5d-474c-bb8c-6aec24adef83"
+          },
+          {
+            "name": "EIXO X Disperção Min",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vValorMax = minX(vTabela, [Quantidade de entregas])",
+              "var vDeslocamento = 0.9 ",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "8b5cb813-93c1-445f-97fe-4d81c0198e36"
+          },
+          {
+            "name": "EIXO X Disperção",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vValorMax = MAXX(vTabela, [Quantidade de entregas])",
+              "var vDeslocamento = 1.1 ",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "9e66da93-d725-4775-971d-5d7332a226c5"
+          },
+          {
+            "name": "Cor das bolhas",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "IF([On-Time Delivery] < 0.9, \"#F94F46\", \"#21A0AA\")"
+            ],
+            "lineageTag": "11feb620-53af-4ac3-99cd-b5587d5bbf7b"
+          },
+          {
+            "name": "EIXO Y BARRAS HORIZONTAIS por HUB",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "var vTabela = ALLSELECTED(Deliveries[hub_name])",
+              "var vValorMax = MAXX(vTabela, [Tempo médio de ciclo do pedido])",
+              "var vDeslocamento = 1.5 -- 40% do valor máximo",
+              "return  ",
+              "vValorMax * vDeslocamento"
+            ],
+            "lineageTag": "4b01822a-2f19-4ba0-9c7c-30c267a00958"
+          },
+          {
+            "name": "card.QuantidadeDeEntregadas",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValorTempo =            ",
+              "    [Quantidade de pedidos dentro do prazo]",
+              "",
+              "",
+              "VAR vValor_formatado =      ",
+              "    FORMAT( vValorTempo, \"#,##0\" ) ",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "VAR vFonteCategoria = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Qtde. Entregas:\", \"Qty Delivered:\")",
+              "-- VAR vRotulo_categoria_texto_eixo_x = IF(ALLSELECTED(idiomas[language]) = \"PT\", 85, 80)",
+              "VAR vRotulo_categoria_cor = \"#3f3f3f\"",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_dados_cor = \"#000000\"",
+              "VAR vRotulo_dados_tam = 16",
+              "VAR vRotulo_dados_peso = 700",
+              "VAR vRotulo_dados_posicao = IF(ALLSELECTED(idiomas[language]) = \"PT\", 85, 80)",
+              "",
+              "",
+              "",
+              "",
+              "RETURN ",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='70' viewBox='0 0 200 70' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "   ",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='0' y='17'> \" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "    ",
+              "    <!-- Texto de Dados -->",
+              "   <text id='f004' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonteCategoria & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'>",
+              "        <tspan x='\" & vRotulo_dados_posicao & \"' y='17'>\" & vValor_formatado & \"</tspan> ",
+              "    </text>",
+              "</svg>",
+              "\"",
+              ""
+            ],
+            "lineageTag": "4a5ba37c-494b-4f62-8949-83750b6920ce"
+          },
+          {
+            "name": "card.QuantidadeDeEntregadasAtrasadas",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValorTempo =            ",
+              "    [Quantidade de pedidos fora do prazo]",
+              "",
+              "",
+              "VAR vValor_formatado =      ",
+              "    FORMAT( vValorTempo, \"#,##0\" ) ",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "VAR vFonteCategoria = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Qtde. Atrasos:\", \"Qty Late Delivered:\")",
+              "VAR vRotulo_categoria_cor = \"#3f3f3f\"",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_dados_cor = \"#000000\"",
+              "VAR vRotulo_dados_tam = 16",
+              "VAR vRotulo_dados_peso = 700",
+              "VAR vRotulo_dados_posicao = IF(ALLSELECTED(idiomas[language]) = \"PT\", 78, 105)",
+              "",
+              "",
+              "",
+              "",
+              "RETURN ",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='70' viewBox='0 0 200 70' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "   ",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='400'>",
+              "        <tspan x='0' y='17'> \" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "    ",
+              "    <!-- Texto de Dados -->",
+              "   <text id='f004' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonteCategoria & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"'>",
+              "        <tspan x='\" & vRotulo_dados_posicao & \"' y='17'>\" & vValor_formatado & \"</tspan> ",
+              "    </text>",
+              "</svg>",
+              "\"",
+              ""
+            ],
+            "lineageTag": "5ef5a5aa-cc2c-499b-b394-66903710a5bf"
+          },
+          {
+            "name": "OnTime-InFull MoM%",
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR __PREV_MONTH = CALCULATE([OnTime-InFull], DATEADD('Calendar'[Data], -1, MONTH))",
+              "RETURN",
+              "\tDIVIDE([OnTime-InFull] - __PREV_MONTH, __PREV_MONTH) "
+            ],
+            "extendedProperties": [
+              {
+                "name": "MeasureTemplate",
+                "type": "json",
+                "value": {
+                  "daxTemplateName": "MonthOverMonth",
+                  "version": 0
+                }
+              }
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "d21736bd-4f7e-4abc-a425-8a60f557a04c"
+          },
+          {
+            "name": "Tempo médio de atraso MoM%",
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR __PREV_MONTH = CALCULATE([Tempo médio de atraso], DATEADD('Calendar'[Data], -1, MONTH))",
+              "RETURN",
+              "\tDIVIDE([Tempo médio de atraso] - __PREV_MONTH, __PREV_MONTH)"
+            ],
+            "extendedProperties": [
+              {
+                "name": "MeasureTemplate",
+                "type": "json",
+                "value": {
+                  "daxTemplateName": "MonthOverMonth",
+                  "version": 0
+                }
+              }
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "13fe2f0f-e782-4130-9008-bd26bd8b2653"
+          },
+          {
+            "name": "Tempo médio de ciclo do pedido MoM%",
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR __PREV_MONTH =",
+              "\tCALCULATE(",
+              "\t\t[Tempo médio de ciclo do pedido],",
+              "\t\tDATEADD('Calendar'[Data], -1, MONTH)",
+              "\t)",
+              "RETURN",
+              "\tDIVIDE([Tempo médio de ciclo do pedido] - __PREV_MONTH, __PREV_MONTH)"
+            ],
+            "extendedProperties": [
+              {
+                "name": "MeasureTemplate",
+                "type": "json",
+                "value": {
+                  "daxTemplateName": "MonthOverMonth",
+                  "version": 0
+                }
+              }
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "5712378a-27e7-471b-a535-d9ca3f98ca66"
+          },
+          {
+            "name": "Tempo médio de atraso do pedido",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isCustom\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "/* Order cycle time calcula o tempo médio entre a abertura do pedido até a entrega efetiva do pedido */ ",
+              "VAR vSegundosTotal = AVERAGE(Deliveries[late_time_delivery]) * 86400 -- 86400 quantidade de segundos em um dia",
+              "VAR vHoras = INT(vSegundosTotal/3600)  -- 3600 quantidade de segundos em horas",
+              "VAR vMinutos = INT(MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
+              "VAR vSegundos = INT(MOD(MOD(vSegundosTotal, 3600), 60))",
+              "return",
+              "CONVERT(vHoras & RIGHT(\"0\"&vMinutos,2), INTEGER)"
+            ],
+            "formatString": "00 min",
+            "lineageTag": "596cc8a3-ea15-4723-8e57-aa2653122e9b"
+          },
+          {
+            "name": "título on-time delivery cartão",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"On-Time Delivery\", \"On-Time Rate Delivery\")"
+            ],
+            "lineageTag": "3e282141-8573-41f4-8890-8471ab448b18"
+          },
+          {
+            "name": "título tempo medico de vida cartão",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Tempo médio de vida\", \"Life cycle time\")"
+            ],
+            "lineageTag": "1b044f21-a6a5-4c0e-a27b-665759138099"
+          },
+          {
+            "name": "título tempo atraso de vida cartão",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Tempo médio de atraso\", \"Avg Late Time\")"
+            ],
+            "lineageTag": "576dcb03-4e06-4bd2-92c1-c5e095fc8052"
+          },
+          {
+            "name": "título cidade segmentação",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Cidade\", \"City\")"
+            ],
+            "lineageTag": "fa97ff0f-b34d-4a58-b71b-26bb054ff44a"
+          },
+          {
+            "name": "título mes segmentação",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Mês\", \"Month\")"
+            ],
+            "lineageTag": "dfe22005-ef8f-4692-adf1-b32dea704e86"
+          },
+          {
+            "name": "título entregas e atrasos por hub",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Tempo médio de entrega e atraso por HUB\", \"On-Time Delivery and Avg Late Time\")"
+            ],
+            "lineageTag": "c64c9440-2111-49ee-abb0-e2585399c467"
+          },
+          {
+            "name": "título desempenho por hub",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Desempenho por HUB\", \"HUB Delivery Avarage\")"
+            ],
+            "lineageTag": "0a94cfb2-f24c-4a22-a772-209687d1dd13"
+          },
+          {
+            "name": "título home",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Mergulhe nos principais indicadores do seu negócio\", \"Dive-into your key performance indicators\")"
+            ],
+            "lineageTag": "0011b152-35e1-47a5-814b-167a56b2a85b"
+          },
+          {
+            "name": "título entregas",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Acompanhe seu desempenho logístico\", \"Track your logistics performance\")"
+            ],
+            "lineageTag": "4895ce12-b850-4286-9997-6b02067fcaec"
+          },
+          {
+            "name": "título por hora",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Acompanhamento de On-Time Delivery por hora\", \"Ordes and On-Time Rate Delivery by hour\")"
+            ],
+            "lineageTag": "e2527079-2277-49ea-9209-2aecdcac57c8"
+          },
+          {
+            "name": "Descrição botão home",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Página inicial\", \"Home\")"
+            ],
+            "lineageTag": "17df9e70-1a26-4cd6-97f2-138d982ff8e9"
+          },
+          {
+            "name": "Descrição botão entregas",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Entregas\", \"Delivery\")"
+            ],
+            "lineageTag": "058724f8-ded3-49da-99dd-09102e5b4b01"
+          },
+          {
+            "name": "Descrição botão financeiro",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Financeiro\", \"Finance\")"
+            ],
+            "lineageTag": "2e9ad471-f815-4ec0-8c13-1f3b47c8797d"
+          },
+          {
+            "name": "título recolher",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Recolher\", \"Close\")"
+            ],
+            "lineageTag": "99a8b5ad-6a27-4324-b630-6717d51985cc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Medidas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Coluna1 = _t]),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Origem,{{\"Coluna1\", type text}}),",
+                "    #\"Colunas Removidas\" = Table.RemoveColumns(#\"Tipo Alterado\",{\"Coluna1\"})",
+                "in",
+                "    #\"Colunas Removidas\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Orders",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "channel_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "54df6e52-a74f-4f96-8ca3-58f2c07917b1",
+            "sourceColumn": "channel_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "Orders[order_moment_finished] - Orders[order_moment_created]"
+            ],
+            "lineageTag": "d35a1ade-a758-4690-8f0b-48c1c9857fbf",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "d11d626e-df60-4cbd-b6b9-25a525e8a967",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ecf2696d-d0be-4f15-b3f2-29dac57abaff",
+            "sourceColumn": "delivery_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "horas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "196fb3dc-612a-4459-a239-a731879fb884",
+            "sourceColumn": "horas",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_city",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8e7f680f-ad1a-4ff8-b775-3269d60d4619",
+            "sourceColumn": "hub_city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7d3a5227-c684-4292-808a-bf2b29f3f66b",
+            "sourceColumn": "hub_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_state",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e54a9867-7974-4935-b9fa-0e4323470426",
+            "sourceColumn": "hub_state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "n_store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ad3f9e44-0e2d-48f6-96ee-abbd63e9821f",
+            "sourceColumn": "n_store_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "008eb039-74f6-4560-9b39-f8856490b938",
+            "sourceColumn": "order_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "33687605-5f9e-4679-8c22-d3f0e047e19b",
+            "sourceColumn": "order_created_day",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ed37d069-67e7-48d0-aa37-4f27957d2071",
+            "sourceColumn": "order_created_hour",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_minute",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "8227b135-367a-4237-b4bc-91ec545d758d",
+            "sourceColumn": "order_created_minute",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "29a7f974-33d7-417e-85fc-8928b6ca92c8",
+            "sourceColumn": "order_created_month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e665b2bd-d780-41c2-86c9-5201b05452ee",
+            "sourceColumn": "order_created_year",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_delivery_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "db90d280-7b58-4592-b28f-fab90e6b4af2",
+            "sourceColumn": "order_delivery_cost",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_delivery_fee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0",
+            "lineageTag": "d95a6838-8017-4ec1-a91a-af695eba08b8",
+            "sourceColumn": "order_delivery_fee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f8853090-4b5c-481d-ae03-26fd1aa5c767",
+            "sourceColumn": "order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_metric_cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f11a6cbe-35ce-4b9d-9ab3-8e01e583450f",
+            "sourceColumn": "order_metric_cycle_time",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_metric_production_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "fee382c6-f4a1-4f84-b5a0-a3ca482ba275",
+            "sourceColumn": "order_metric_production_time",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_moment_accepted",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "61ab328e-c7be-4c7a-bf4d-4e4c71da37d8",
+            "sourceColumn": "order_moment_accepted",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_collected",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "e6d68d8e-26d0-4c2f-9eb6-ee3678852e52",
+            "sourceColumn": "order_moment_collected",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_created",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "95eabddb-98a6-499b-80ab-1bda72992522",
+            "sourceColumn": "order_moment_created",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_delivered",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "197859a7-5a89-496e-9cb1-12b4b1682943",
+            "sourceColumn": "order_moment_delivered",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_delivering",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "16b1eb53-d804-4546-beb7-f3cd47a725eb",
+            "sourceColumn": "order_moment_delivering",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_finished",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "c75d1809-fea4-46f1-a0c6-10129994710c",
+            "sourceColumn": "order_moment_finished",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_in_expedition",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "fd81f949-9f5d-4671-9ace-821127be2221",
+            "sourceColumn": "order_moment_in_expedition",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e76418fe-4b67-4b05-a1fd-d251bab7bdaf",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "97c85bb9-7e72-474d-96e7-19491a699a43",
+            "sourceColumn": "payment_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              },
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "da219afa-a969-4098-bd8d-fac5c1ec1bd2",
+            "sortByColumn": "n_store_id",
+            "sourceColumn": "store_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7cf8f1dd-336f-4ea5-974c-4413a899db85",
+            "sourceColumn": "store_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_segment",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "17580a2e-3350-4dff-82b0-08096a2dc04c",
+            "sourceColumn": "store_segment",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "4d867a8c-f6f8-428c-8a86-14c2ad359749",
+        "partitions": [
+          {
+            "name": "Orders",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost:1433\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_ORDERS\"]),",
+                "    #\"Linhas Filtradas\" = Table.SelectRows(Origem, each true),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Linhas Filtradas\",{{\"horas\", type time}, {\"date\", type date}})",
+                "in",
+                "    #\"Tipo Alterado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Payments",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "payment_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f91fc2a0-dbc3-47a8-b1a8-8b4885556888",
+            "sourceColumn": "payment_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_fee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a56518ee-e6f8-49f9-8ccb-796572f9f0c0",
+            "sourceColumn": "payment_fee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c24b8d39-3f7f-4a53-b26f-a1e77808ec96",
+            "sourceColumn": "payment_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_method",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bc082240-5b85-4b42-83ea-1baa83294d85",
+            "sourceColumn": "payment_method",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "05ea03ad-2bd2-405e-bfe3-bed1efc57169",
+            "sourceColumn": "payment_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "31018087-e73c-4367-a73b-c761703240d4",
+            "sourceColumn": "payment_status",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "f14fc01a-379f-401e-ad48-61b78fc1b2b3",
+        "partitions": [
+          {
+            "name": "Payments",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT #(lf)payment_id, payment_order_id,#(lf)ROUND(payment_amount,2) as payment_amount, #(lf)payment_fee, payment_method,payment_status #(lf)FROM DELIVERY.PAYMENTS\"])",
+                "in",
+                "    Origem"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "TOPN",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "fbc983991f0846809508b332da8b8faf"
+          }
+        ],
+        "columns": [
+          {
+            "name": "TOPN",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataType": "int64",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "version": 0
+                }
+              }
+            ],
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "eb95f950-5a4a-441e-b019-841dc4219156",
+            "sourceColumn": "[Value]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "396d8372-aeba-43aa-8576-01fbec51fcd9",
+        "measures": [
+          {
+            "name": "Valor de TOPN",
+            "expression": "SELECTEDVALUE('TOPN'[TOPN], 10)",
+            "formatString": "0",
+            "lineageTag": "c3e2a6f8-8755-4b7a-b98f-40ec568a556a"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TOPN",
+            "mode": "import",
+            "source": {
+              "expression": "GENERATESERIES(0, 20, 1)",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "idiomas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "language",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fe81d64b-26ac-4b7e-9cac-ebd64dcdd640",
+            "sourceColumn": "language",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ec4f353e-d228-4877-9123-010e488d5ccf",
+        "partitions": [
+          {
+            "name": "idiomas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i45WCghRitWJVnL1U4qNBQA=\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [language = _t]),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Origem,{{\"language\", type text}})",
+                "in",
+                "    #\"Tipo Alterado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
