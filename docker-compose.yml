@@ -13,11 +13,3 @@ services:
       MSSQL_TCP_PORT: 1433
     ports:
       - 1433:1433
-  # app:
-  #     environment:
-  #     - DB_USER=${DB_USER}
-  #     - DB_PASSWORD=${DB_PASSWORD}
-  #     image: 'docker_img/dw_dev:v0.0.4' #change the number version to create new images
-  #     build: .
-  #     ports:
-  #     - 8080:8080
