@@ -1,6 +1,10 @@
 # DeliveryCenter
 
-Trabalhando com dados logísticos devidamente anonimizados de uma empresa real. Aceitamos o desafio lançado em [https://www.kaggle.com/datasets/nosbielcs/brazilian-delivery-center/data] e desenvolvemos uma solução de Business Intelligence para apoiar a tomada de decisão de uma empresa de serviços de entregas. Além da criação dos indicadores-chave em linguagem DAX avançada, algumas técnicas de modelagem e transformação de dados, por meio de scripts SQL, foram adotadas para garantir a eficiência e qualidade das informações apresentadas.
+Aceitamos o desafio lançado no [https://www.kaggle.com/datasets/nosbielcs/brazilian-delivery-center/data] e desenvolvemos uma solução de Business Intelligence para apoiar a tomada de decisão de uma empresa de serviços de entregas. Trabalhamos com dados logísticos de uma empresa real devidamente anonimizados. Além da criação dos indicadores-chave como On-Time Rate Delivery e Order Cycle Ttime (OCT), em linguagem DAX avançada, outras técnicas de modelagem e transformação de dados, em scripts SQL, foram adotadas para garantir a eficiência e qualidade das informações apresentadas. 
+
+O link para o dashboard:
+[https://app.powerbi.com/view?r=eyJrIjoiNzNmMWUzZjQtZjMxZi00YmMwLTkzYmEtZmZjMjAwMTUxNGMwIiwidCI6ImJmOTNlYThlLTZlNmQtNGEwMy04ODhiLTIxZWI5YjkyMjc2MCIsImMiOjl9&pageName=ReportSection5a49f1e564404aea5607]
+
 
 Aplicações Práticas:
 
@@ -21,7 +25,4 @@ Indicadores-Chave:
 ⏰ Tempo Médio de Atraso: Alertas instantâneos para aprimorar áreas críticas, garantindo satisfação contínua.
 
 #businessintelligence #powerbi #dataanalytics #datadrivendecisionmaking #powerbideveloper
-
-[https://app.powerbi.com/view?r=eyJrIjoiNzNmMWUzZjQtZjMxZi00YmMwLTkzYmEtZmZjMjAwMTUxNGMwIiwidCI6ImJmOTNlYThlLTZlNmQtNGEwMy04ODhiLTIxZWI5YjkyMjc2MCIsImMiOjl9&pageName=ReportSection5a49f1e564404aea5607]
-
 #businessintelligence #powerbi #dataanalytics #datadrivendecisionmaking #powerbideveloper
