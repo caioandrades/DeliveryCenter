@@ -7,7 +7,7 @@ WORKDIR /app
 #ENV DB_PORT=""
 #ENV DB_DATABASE=""
 ENV DB_USER="SA"
-ENV DB_PASSWORD="Passw0rd"
+ENV DB_PASSWORD="Passw0rd123"
 
 # Install dependencies for Oracle Instant Client and MSSQL Server
 RUN mkdir /opt/oracle && \
