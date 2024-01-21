@@ -1,6 +1,6 @@
 # DeliveryCenter
 
-Aceitamos o desafio lançado no [https://www.kaggle.com/datasets/nosbielcs/brazilian-delivery-center/data] e desenvolvemos uma solução de Business Intelligence para apoiar a tomada de decisão de uma empresa de serviços de entregas. Trabalhamos com dados logísticos de uma empresa real devidamente anonimizados. Além da criação dos indicadores-chave como On-Time Rate Delivery e Order Cycle Ttime (OCT), em linguagem DAX avançada, outras técnicas de modelagem e transformação de dados, em scripts SQL, foram adotadas para garantir a eficiência e qualidade das informações apresentadas. 
+Aceitamos o desafio lançado no [https://www.kaggle.com/datasets/nosbielcs/brazilian-delivery-center/data] e desenvolvemos uma solução de Business Intelligence para apoiar a tomada de decisão de uma empresa de serviços de entregas. Trabalhamos com dados logísticos de uma empresa real devidamente anonimizados. Além da criação dos indicadores-chave, em linguagem DAX, como On-Time Rate Delivery e Order Cycle Ttime (OCT), outras técnicas de modelagem e transformação de dados, em scripts SQL, foram adotadas para garantir a eficiência e qualidade das informações apresentadas. 
 
 O link para o dashboard:
 [https://app.powerbi.com/view?r=eyJrIjoiNzNmMWUzZjQtZjMxZi00YmMwLTkzYmEtZmZjMjAwMTUxNGMwIiwidCI6ImJmOTNlYThlLTZlNmQtNGEwMy04ODhiLTIxZWI5YjkyMjc2MCIsImMiOjl9&pageName=ReportSection5a49f1e564404aea5607]
