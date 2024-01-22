@@ -83,10 +83,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navegação"
           }
         ],
         "columns": [
@@ -1180,16 +1176,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
-                "     \"R$#,0.0; - #,0.0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
+                "     \"R$#,0.0; - #,0.0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1210,16 +1206,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
-                "     \"R$#,0.0; - #,0.0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
+                "     \"R$#,0.0; - #,0.0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1264,16 +1260,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",",
-                "     \"#0; - #0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",\r",
+                "     \"#0; - #0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1295,16 +1291,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
-                "     \"R$#,0.0; - #,0.0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
+                "     \"R$#,0.0; - #,0.0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1572,16 +1568,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
-                "     \"R$#,0.0; - #,0.0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
+                "     \"R$#,0.0; - #,0.0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1599,16 +1595,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
-                "     \"R$#,0.0; - #,0.0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
+                "     \"R$#,0.0; - #,0.0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1707,16 +1703,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
-                "     \"R$#,0.0; - #,0.0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
+                "     \"R$#,0.0; - #,0.0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1771,16 +1767,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()",
-                "var _Formato =",
-                "SWITCH(",
-                "    TRUE(),",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
-                "     \"R$#,0.0; - #,0.0\"",
-                ")",
-                "return",
+                "var _Valor = SELECTEDMEASURE()\r",
+                "var _Formato =\r",
+                "SWITCH(\r",
+                "    TRUE(),\r",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
+                "     \"R$#,0.0; - #,0.0\"\r",
+                ")\r",
+                "return\r",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -2326,12 +2322,6 @@
           },
           {
             "name": "Tempo médio de atraso",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isCustom\":true}"
-              }
-            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
@@ -2344,7 +2334,9 @@
               "        Deliveries[is_checked] = \"FALSE\")",
               ")"
             ],
-            "formatString": "## min",
+            "formatStringDefinition": {
+              "expression": "\"0.00\" & \" min\""
+            },
             "lineageTag": "e07e0eb1-877a-4b25-97bc-4f7edc396fc5"
           },
           {
@@ -2655,11 +2647,11 @@
               "",
               "VAR __PREV_MONTH =",
               "\tCALCULATE(",
-              "\t\t[Tempo médio de ciclo do pedido],",
+              "\t\t[Tempo médio de ciclo do pedido com formato decimal],",
               "\t\tDATEADD('Calendar'[Data], -1, MONTH)",
               "\t)",
               "RETURN",
-              "\tDIVIDE([Tempo médio de ciclo do pedido] - __PREV_MONTH, __PREV_MONTH)"
+              "\tDIVIDE([Tempo médio de ciclo do pedido com formato decimal] - __PREV_MONTH, __PREV_MONTH)"
             ],
             "extendedProperties": [
               {
@@ -2806,6 +2798,307 @@
               "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Recolher\", \"Close\")"
             ],
             "lineageTag": "99a8b5ad-6a27-4324-b630-6717d51985cc"
+          },
+          {
+            "name": "Tempo médio de atraso em segundos",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* Oder Fill Rate calcula o tempo médio para a separação de um pedido (data de abertura até data de expedição) */",
+              "CALCULATE(",
+              "    AVERAGEX(",
+              "        Deliveries,",
+              "        DATEDIFF(Deliveries[order_moment_estimated], Deliveries[order_moment_finished],SECOND)),",
+              "        FILTER(ALL(Deliveries[is_checked]),",
+              "        Deliveries[is_checked] = \"FALSE\")",
+              ")"
+            ],
+            "formatStringDefinition": {
+              "expression": "\"0.00\" & \" seg\""
+            },
+            "lineageTag": "863b7b2a-ef34-469b-9eb3-abd7aa9b29a0"
+          },
+          {
+            "name": "Tempo médio de ciclo do pedido com formato decimal",
+            "displayFolder": "Entregas",
+            "expression": [
+              "",
+              "/* Order cycle time calcula o tempo médio entre a abertura do pedido até a entrega efetiva do pedido */ ",
+              "VAR vSegundosTotal = AVERAGE(Deliveries[life_cycle_time]) * 86400 -- 86400 quantidade de segundos em um dia",
+              "VAR vHoras = (vSegundosTotal/3600)  -- 3600 quantidade de segundos em horas",
+              "VAR vMinutos = (MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
+              "VAR vSegundos = (MOD(MOD(vSegundosTotal, 3600), 60))",
+              "return vMinutos"
+            ],
+            "formatStringDefinition": {
+              "expression": "\"0.00\" & \" min\""
+            },
+            "lineageTag": "6e8c1b22-3dbf-4d04-b059-3e268faca278"
+          },
+          {
+            "name": "Tempo médio de ciclo do pedido mês passado",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "\t\t[Tempo médio de ciclo do pedido com formato decimal],",
+              "\t\tDATEADD('Calendar'[Data], -1, MONTH)",
+              "\t)"
+            ],
+            "lineageTag": "318c4020-12d6-4e7e-9266-233f6640709a"
+          },
+          {
+            "name": "OnTime-InFull mês passado",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE([OnTime-InFull], DATEADD('Calendar'[Data], -1, MONTH))"
+            ],
+            "lineageTag": "c7929dec-62a8-4197-9f18-df4047b6e475"
+          },
+          {
+            "name": "Tempo médio de atraso mês passado",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "CALCULATE([Tempo médio de atraso], DATEADD('Calendar'[Data], -1, MONTH))",
+            "lineageTag": "71a40f1b-673c-40e8-84a4-e4c5b5f09b77"
+          },
+          {
+            "name": "Comparativo MoM Ot-In",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValor = [OnTime-InFull MoM%]",
+              "VAR vValor_formatado = FORMAT(vValor, \"0.00%\") ",
+              "VAR vMeta = 1",
+              "VAR vCor = ",
+              "    IF(vValor < 0, \"#EF5753\",",
+              "        IF(vValor = 0, \"#FFD771\", \"#75BB92\"))",
+              "",
+              "VAR vDirecaoFlecha = ",
+              "    IF(vValor > 0, \"&#9650;\", ",
+              "        IF(vValor < 0, \"&#9660;\", \"=\"))",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"MoM:\"",
+              "VAR vRotulo_categoria_cor = vCor",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_dados_cor = vCor",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 110",
+              "",
+              "VAR vBarra_altura = 15",
+              "VAR vBarra_progresso_cor = \"#21A0AA\"",
+              "VAR vBarra_fundo_opacidade = 2",
+              "VAR vLinha_meta_larg = 3",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "VAR vCor_fundo = vCor",
+              "",
+              "RETURN",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='80' viewBox='0 0 200 80' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Retângulo de Fundo -->",
+              "   <--! <rect id='f001' x='0' y='15' width='190' height='\" & vBarra_altura & \"' fill='\" & vCor_fundo & \"' opacity='0.\" & vBarra_fundo_opacidade & \"' rx='5' ry='5' /> -->",
+              "",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
+              "        <tspan x='15' y='27'>\" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "",
+              "    <!-- Linha de Meta -->",
+              "    <!-- <rect id='f005' x='\" & MIN(190, MAX(0, ROUND(131 * vMeta, 0))) & \" ' y='11' width='\" & vLinha_meta_larg & \"' height='\" & vBarra_altura + 10 & \"' fill='\" & vLinha_meta_cor & \"' /> -->",
+              "",
+              "    <!-- Texto de Seta para Cima, para Baixo ou Igual e Dados -->",
+              "    <text id='f006' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"' text-anchor='middle' dominant-baseline='middle'>",
+              "        <tspan x='100' y='24'>\" & vDirecaoFlecha & \" \" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "</svg>",
+              "\""
+            ],
+            "lineageTag": "04aef331-8530-4d43-a652-29e9f4dc8f24"
+          },
+          {
+            "name": "Comparativo MoM tempo de atraso",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValor = [Tempo médio de atraso MoM%]",
+              "VAR vValor_formatado = FORMAT(vValor, \"0.00%\") ",
+              "VAR vMeta = 1",
+              "VAR vCor = ",
+              "    IF(vValor < 0, \"#EF5753\",",
+              "        IF(vValor = 0, \"#000000\", \"#75BB92\"))",
+              "",
+              "VAR vDirecaoFlecha = ",
+              "    IF(vValor > 0, \"&#9650;\", ",
+              "        IF(vValor < 0, \"&#9660;\", \"--\"))",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"MoM:\"",
+              "VAR vRotulo_categoria_cor = vCor",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_dados_cor = vCor",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 110",
+              "",
+              "VAR vBarra_altura = 15",
+              "VAR vBarra_progresso_cor = \"#21A0AA\"",
+              "VAR vBarra_fundo_opacidade = 2",
+              "VAR vLinha_meta_larg = 3",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "VAR vCor_fundo = vCor",
+              "",
+              "RETURN",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='80' viewBox='0 0 200 80' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
+              "        <tspan x='' y='20'>\" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "    <!-- Texto de Seta para Cima, para Baixo ou Igual e Dados -->",
+              "    <text id='f006' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"' text-anchor='middle' dominant-baseline='middle'>",
+              "        <tspan x='70' y='17'>\" & vDirecaoFlecha & \" \" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "</svg>",
+              "\""
+            ],
+            "lineageTag": "8a3b2d78-1598-47dd-a847-6a486c81e225"
+          },
+          {
+            "name": "Comparativo MoM ciclo do pedido",
+            "displayFolder": "Visuais",
+            "expression": [
+              "",
+              "VAR vValor = [Tempo médio de ciclo do pedido MoM%]",
+              "VAR vValor_formatado = FORMAT(vValor, \"0.00%\") ",
+              "",
+              "VAR vCor = ",
+              "    IF(vValor < 0, \"#EF5753\",",
+              "        IF(vValor = 0, \"#000000\", \"#75BB92\"))",
+              "",
+              "VAR vDirecaoFlecha = ",
+              "    IF(vValor > 0, \"&#9650;\", ",
+              "        IF(vValor < 0, \"&#9660;\", \"--\"))",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"MoM:\"",
+              "VAR vRotulo_categoria_cor = vCor",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_dados_cor = vCor",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 1000000",
+              "",
+              "",
+              "VAR vCor_fundo = vCor",
+              "",
+              "RETURN",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='80' viewBox='0 0 200 80' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
+              "        <tspan x='' y='20'>\" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "    <!-- Texto de Seta para Cima, para Baixo ou Igual e Dados -->",
+              "    <text id='f006' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"' text-anchor='middle' dominant-baseline='middle'>",
+              "        <tspan x='70' y='17'>\" & vDirecaoFlecha & \" \" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "</svg>",
+              "\""
+            ],
+            "lineageTag": "b601d859-2f47-47f1-844c-e78f039ebb07"
+          },
+          {
+            "name": "título OnTime - InFull cartão",
+            "expression": [
+              "",
+              "VAR vTitulo =",
+              "    IF(ALLSELECTED(idiomas[language]) = \"PT\", \"On-Time & In-Full Delivery\", \"On-Time & In-Full Rate Delivery\")",
+              "RETURN  ",
+              "    vTitulo"
+            ],
+            "lineageTag": "7ca83b27-bdcb-43b3-9ab0-894d601ff00e"
+          },
+          {
+            "name": "título tempo médio de retraso cartão",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Tempo médio de retraso\", \"Average delay time\")"
+            ],
+            "lineageTag": "6182c142-30b4-42e4-9151-eaef3efb97b9"
+          },
+          {
+            "name": "título tempo médio de ciclo do pedido cartão",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Tempo médio de ciclo do pedido\", \"Average order cycle time\")"
+            ],
+            "lineageTag": "e3cc082f-486a-41ca-bb5e-85680adfe0c8"
+          },
+          {
+            "name": "meta",
+            "expression": "0.9",
+            "formatStringDefinition": {
+              "expression": [
+                "VAR meta = SELECTEDMEASURE()",
+                "RETURN",
+                "    \"meta: \" & FORMAT(meta, \"0%\")"
+              ]
+            },
+            "lineageTag": "b6d01bd3-0213-4f53-8e94-5bdff0637b5b"
+          },
+          {
+            "name": "título quantidade entregas cartão",
+            "expression": [
+              "",
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Qtde. Entregas\", \"Qtdy Delivery\")"
+            ],
+            "lineageTag": "d0f061fe-29a5-4dcf-96da-d9ab4d5ea14c"
+          },
+          {
+            "name": "título quantidade atraso",
+            "expression": [
+              "",
+              " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atraso\", \"Qty Late\")"
+            ],
+            "lineageTag": "c0eea947-db4a-4bd0-940e-2375d50bec96"
           }
         ],
         "partitions": [
