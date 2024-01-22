@@ -242,7 +242,7 @@
             "name": "texto título On-Time Delivery gráfico de disperção",
             "expression": [
               "",
-              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Quantidade de pedidos e On-time Rate Delivery\", \"Orders and On-Time Rate Delivery\")"
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Quantidade de pedidos e On-time Delivery Rate por HUB\", \"Orders and On-Time Delivery Rate HUB\")"
             ],
             "lineageTag": "8bed6fd8-0030-4174-9df7-d18779958c54"
           },
@@ -253,6 +253,72 @@
               "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Clique aqui\", \"Click here\")"
             ],
             "lineageTag": "d5806695-642d-4742-b389-c48cb5f22ca4"
+          },
+          {
+            "name": "Quantidade de pedidos dentro do prazo MoM%",
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR __PREV_MONTH =",
+              "\tCALCULATE(",
+              "\t\t[Quantidade de pedidos dentro do prazo],",
+              "\t\tDATEADD('Calendar'[Data], -1, MONTH)",
+              "\t)",
+              "RETURN",
+              "\tDIVIDE(",
+              "\t\t[Quantidade de pedidos dentro do prazo] - __PREV_MONTH,",
+              "\t\t__PREV_MONTH",
+              "\t)"
+            ],
+            "extendedProperties": [
+              {
+                "name": "MeasureTemplate",
+                "type": "json",
+                "value": {
+                  "daxTemplateName": "MonthOverMonth",
+                  "version": 0
+                }
+              }
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "75bfabf6-8b44-48f6-90c1-50145f7aa6eb"
+          },
+          {
+            "name": "Quantidade de pedidos fora do prazo MoM%",
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR __PREV_MONTH =",
+              "\tCALCULATE(",
+              "\t\t[Quantidade de pedidos fora do prazo],",
+              "\t\tDATEADD('Calendar'[Data], -1, MONTH)",
+              "\t)",
+              "RETURN",
+              "\tDIVIDE(",
+              "\t\t[Quantidade de pedidos fora do prazo] - __PREV_MONTH,",
+              "\t\t__PREV_MONTH",
+              "\t)"
+            ],
+            "extendedProperties": [
+              {
+                "name": "MeasureTemplate",
+                "type": "json",
+                "value": {
+                  "daxTemplateName": "MonthOverMonth",
+                  "version": 0
+                }
+              }
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "d198931f-ecd9-4a0c-82af-82add33c44a2"
           }
         ],
         "partitions": [
@@ -359,6 +425,108 @@
                 "    DELIVERY_channels"
               ],
               "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ClusterMappingTable",
+        "annotations": [
+          {
+            "name": "ClusterMappingTable",
+            "value": "true"
+          },
+          {
+            "name": "__PBI_SemanticLinks",
+            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
+          }
+        ],
+        "columns": [
+          {
+            "name": "ClusterId",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "__PBI_SemanticLinks",
+                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "5a384651-80db-4b73-9ab4-5849aedd710a",
+            "sourceColumn": "[ClusterId]",
+            "summarizeBy": "count",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "hub_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "__PBI_SemanticLinks",
+                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "b6b5bd83-f01b-4c9d-86f1-ee49f6e2f4d0",
+            "sourceColumn": "[hub_name]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "b600c132-097d-4f27-bf26-36821838c011",
+        "partitions": [
+          {
+            "name": "ClusterMappingTable",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "VAR __DS0FilterTable = ",
+                "\tFILTER(",
+                "\t\tKEEPFILTERS(VALUES('idiomas'[language])),",
+                "\t\tAND('idiomas'[language] IN {\"EN\"}, 'idiomas'[language] IN {\"PT\"})",
+                "\t)",
+                "",
+                "VAR __DS0Core = ",
+                "\tSUMMARIZECOLUMNS(",
+                "\t\t'Deliveries'[hub_name],",
+                "\t\t__DS0FilterTable,",
+                "\t\t\"On_Time_Delivery\", 'Medidas'[On-Time Delivery],",
+                "\t\t\"Quantidade_de_entregas\", 'Medidas'[Quantidade de entregas]",
+                "\t)",
+                "",
+                "VAR __DataTransformT0 = ",
+                "\tKMeansClustering(",
+                "\t\tSELECTCOLUMNS(",
+                "\t\t\t__DS0Core,",
+                "\t\t\t\"hub_name\", 'Deliveries'[hub_name],",
+                "\t\t\t\"On_Time_Delivery\", [On_Time_Delivery],",
+                "\t\t\t\"Quantidade_de_entregas\", [Quantidade_de_entregas]",
+                "\t\t),",
+                "\t\t{(\"[On_Time_Delivery]\", \"Attribute\"),",
+                "\t\t\t(\"[Quantidade_de_entregas]\", \"Attribute\"),",
+                "\t\t\t(\"[hub_name]\", \"Item\")},",
+                "\t\t{(\"[hub_name]\", BLANK()),",
+                "\t\t\t(\"ClusterId\", \"ClusterId\")},",
+                "\t\t-1",
+                "\t)",
+                "",
+                "RETURN __DataTransformT0"
+              ],
+              "retainDataTillForceCalculate": true,
+              "type": "calculated"
             }
           }
         ]
@@ -521,12 +689,72 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "__PBI_SemanticLinks",
+                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
               }
             ],
             "dataType": "string",
             "lineageTag": "718d1555-ece5-4ae3-9d91-7cff768f46c1",
             "sourceColumn": "hub_name",
             "summarizeBy": "none"
+          },
+          {
+            "name": "hub_name (clusters)",
+            "annotations": [
+              {
+                "name": "GroupingDesignState",
+                "value": "{\"Version\":0,\"Sources\":[{\"Name\":\"d\",\"Entity\":\"Deliveries\"}],\"GroupedColumns\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"hub_name\"}}],\"PartitionTable\":{\"Definition\":{\"TableDefinition\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medidas\"},{\"Name\":\"d\",\"Entity\":\"Deliveries\"},{\"Name\":\"i\",\"Entity\":\"idiomas\"}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"language\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'EN'\"}}]]}}},{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"language\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'PT'\"}}]]}}}],\"OrderBy\":[],\"Select\":[{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"output0\"}},\"Property\":\"Deliveries.hub_name\"},\"Name\":\"Deliveries.hub_name\"},{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"output0\"}},\"Property\":\"clusterId\"},\"Name\":\"clusterId\"}],\"GroupBy\":[],\"Transform\":[{\"Name\":\"KMeansClustering\",\"Algorithm\":\"KMeansClustering\",\"Input\":{\"Parameters\":[{\"Literal\":{\"Value\":\"-1L\"},\"Name\":\"NumberOfClusters\"}],\"Table\":{\"Name\":\"input0\",\"Columns\":[{\"Role\":\"Attribute\",\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"On-Time Delivery\"},\"Name\":\"Medidas.On-Time Delivery\"}},{\"Role\":\"Attribute\",\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Quantidade de entregas\"},\"Name\":\"Medidas.Quantidade de entregas\"}},{\"Role\":\"Item\",\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"hub_name\"},\"Name\":\"Deliveries.hub_name\"}}]}},\"Output\":{\"Table\":{\"Name\":\"output0\",\"Columns\":[{\"Expression\":{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"input0\"}},\"Property\":\"Deliveries.hub_name\"},\"Name\":\"Deliveries.hub_name\"}},{\"Role\":\"Series\",\"Expression\":{\"TransformOutputRoleRef\":{\"Role\":\"ClusterId\"},\"Name\":\"clusterId\"}}]}}}]},\"ItemIdColumns\":[\"Deliveries.hub_name\"],\"PartitionIdColumn\":\"clusterId\",\"Partitions\":[{\"PartitionIds\":[{\"Literal\":{\"Value\":\"null\"}}]}],\"DefaultPartitionPrefix\":\"Cluster\"},\"Result\":{\"TableName\":\"ClusterMappingTable\",\"PartitionIdColumn\":\"ClusterId\",\"ItemIdMappings\":[[{\"PartitionTableColumn\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"ClusterMappingTable\"}},\"Property\":\"hub_name\"}},\"SourceTableColumn\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Deliveries\"}},\"Property\":\"hub_name\"}}}]]}}}"
+              },
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "description": "Clusters para hub_name",
+            "expression": [
+              "VAR __ClusterValue = ",
+              "\tLOOKUPVALUE(",
+              "\t\t'ClusterMappingTable'[ClusterId],",
+              "\t\t'ClusterMappingTable'[hub_name],",
+              "\t\t'Deliveries'[hub_name]",
+              "\t)",
+              "",
+              "RETURN",
+              "\tSWITCH(",
+              "\t\t__ClusterValue,",
+              "\t\tBLANK(),",
+              "\t\tBLANK(),",
+              "\t\tCONCATENATE(\"Cluster\", __ClusterValue)",
+              "\t)"
+            ],
+            "extendedProperties": [
+              {
+                "name": "GroupingMetadata",
+                "type": "json",
+                "value": {
+                  "groupedColumns": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Deliveries"
+                          }
+                        },
+                        "Property": "hub_name"
+                      }
+                    }
+                  ],
+                  "version": 0
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "d35daf31-c04e-4783-9e2f-7b4dcc40a3cc",
+            "summarizeBy": "none",
+            "type": "calculated"
           },
           {
             "name": "hub_state",
@@ -1144,6 +1372,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "__PBI_SemanticLinks",
+            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
           }
         ],
         "lineageTag": "25b5b65d-f6a8-4ba8-b4ae-ea6c57546e32",
@@ -1737,7 +1969,7 @@
             "lineageTag": "a68a5925-76af-4fa0-9be7-f52462cfeca8"
           },
           {
-            "name": "Tempo médio de ciclo do pedido",
+            "name": "Avg Delivery Time",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -1753,9 +1985,9 @@
               "VAR vMinutos = INT(MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
               "VAR vSegundos = INT(MOD(MOD(vSegundosTotal, 3600), 60))",
               "return",
-              "CONVERT(vHoras & RIGHT(\"0\"&vMinutos,2), INTEGER)"
+              "CONVERT(vMinutos & RIGHT(\"0\"&vSegundos,2), INTEGER)"
             ],
-            "formatString": "00 min",
+            "formatString": "00m:00s",
             "lineageTag": "cacf3a0c-0e82-4f3a-8e15-13328d9123ce"
           },
           {
@@ -1799,6 +2031,12 @@
           },
           {
             "name": "Quantidade de entregas",
+            "annotations": [
+              {
+                "name": "__PBI_SemanticLinks",
+                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
+              }
+            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
@@ -1838,7 +2076,7 @@
               "    FORMAT(vReceita, \"R$00,00\")",
               "    ",
               "VAR vValor =            ",
-              "    [Tempo médio de ciclo do pedido]",
+              "    [Avg Delivery Time]",
               "",
               "VAR vValor_formatado =      ",
               "    FORMAT( vValor, \"## min\" ) ",
@@ -1990,7 +2228,7 @@
               "",
               "ROUND(DIVIDE(",
               "    SUM(Deliveries[delivery_distance_meters]),",
-              "    [Tempo médio de ciclo do pedido] ,",
+              "    [Avg Delivery Time] ,",
               "    0",
               "),",
               "0)"
@@ -2014,6 +2252,12 @@
           },
           {
             "name": "On-Time Delivery",
+            "annotations": [
+              {
+                "name": "__PBI_SemanticLinks",
+                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
+              }
+            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
@@ -2162,7 +2406,7 @@
             "expression": [
               "",
               "VAR vValorTempo =            ",
-              "    [Tempo médio de ciclo do pedido]",
+              "    [Avg Delivery Time]",
               "",
               "VAR vValor =            ",
               "    [On-Time Delivery]",
@@ -2321,22 +2565,25 @@
             "lineageTag": "8229f5b1-f30f-40de-a02c-46025d67bf73"
           },
           {
-            "name": "Tempo médio de atraso",
+            "name": "Tempo médio de vida (barras empilhadas)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isCustom\":true}"
+              }
+            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
-              "/* Oder Fill Rate calcula o tempo médio para a separação de um pedido (data de abertura até data de expedição) */",
-              "CALCULATE(",
-              "    AVERAGEX(",
-              "        Deliveries,",
-              "        DATEDIFF(Deliveries[order_moment_estimated], Deliveries[order_moment_finished],MINUTE)),",
-              "        FILTER(ALL(Deliveries[is_checked]),",
-              "        Deliveries[is_checked] = \"FALSE\")",
-              ")"
+              "/* Order cycle time calcula o tempo médio entre a abertura do pedido até a entrega efetiva do pedido */ ",
+              "VAR vSegundosTotal = AVERAGE(Deliveries[life_cycle_time]) * 86400 -- 86400 quantidade de segundos em um dia",
+              "VAR vHoras = INT(vSegundosTotal/3600)  -- 3600 quantidade de segundos em horas",
+              "VAR vMinutos = INT(MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
+              "VAR vSegundos = INT(MOD(MOD(vSegundosTotal, 3600), 60))",
+              "return",
+              "CONVERT(vMinutos, INTEGER)"
             ],
-            "formatStringDefinition": {
-              "expression": "\"0.00\" & \" min\""
-            },
+            "formatString": "00 min",
             "lineageTag": "e07e0eb1-877a-4b25-97bc-4f7edc396fc5"
           },
           {
@@ -2388,9 +2635,9 @@
             "displayFolder": "Visuais",
             "expression": [
               "",
-              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vTabela = ALLSELECTED('Deliveries'[hub_name])",
               "var vValorMax = MAXX(vTabela, [On-Time Delivery])",
-              "var vDeslocamento = 1.1 -- 40% do valor máximo",
+              "var vDeslocamento = 1.5 -- 40% do valor máximo",
               "return  ",
               "vValorMax * vDeslocamento"
             ],
@@ -2407,9 +2654,9 @@
             "displayFolder": "Visuais",
             "expression": [
               "",
-              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vTabela = ALLSELECTED('Deliveries'[hub_name])",
               "var vValorMax = minX(vTabela, [On-Time Delivery])",
-              "var vDeslocamento = 0.9 ",
+              "var vDeslocamento = 0",
               "return  ",
               "vValorMax * vDeslocamento"
             ],
@@ -2426,9 +2673,9 @@
             "displayFolder": "Visuais",
             "expression": [
               "",
-              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vTabela = ALLSELECTED('Deliveries'[hub_name])",
               "var vValorMax = minX(vTabela, [Quantidade de entregas])",
-              "var vDeslocamento = 0.9 ",
+              "var vDeslocamento = 0.5",
               "return  ",
               "vValorMax * vDeslocamento"
             ],
@@ -2445,9 +2692,9 @@
             "displayFolder": "Visuais",
             "expression": [
               "",
-              "var vTabela = ALLSELECTED('Calendar'[Data])",
+              "var vTabela = ALL('Deliveries'[hub_name])",
               "var vValorMax = MAXX(vTabela, [Quantidade de entregas])",
-              "var vDeslocamento = 1.1 ",
+              "var vDeslocamento = 1.1",
               "return  ",
               "vValorMax * vDeslocamento"
             ],
@@ -2474,7 +2721,7 @@
             "expression": [
               "",
               "var vTabela = ALLSELECTED(Deliveries[hub_name])",
-              "var vValorMax = MAXX(vTabela, [Tempo médio de ciclo do pedido])",
+              "var vValorMax = MAXX(vTabela, [Tempo médio de vida (barras empilhadas)])",
               "var vDeslocamento = 1.5 -- 40% do valor máximo",
               "return  ",
               "vValorMax * vDeslocamento"
@@ -2619,9 +2866,9 @@
             ],
             "expression": [
               "",
-              "VAR __PREV_MONTH = CALCULATE([Tempo médio de atraso], DATEADD('Calendar'[Data], -1, MONTH))",
+              "VAR __PREV_MONTH = CALCULATE([Tempo médio de vida], DATEADD('Calendar'[Data], -1, MONTH))",
               "RETURN",
-              "\tDIVIDE([Tempo médio de atraso] - __PREV_MONTH, __PREV_MONTH)"
+              "\tDIVIDE([Tempo médio de vida] - __PREV_MONTH, __PREV_MONTH)"
             ],
             "extendedProperties": [
               {
@@ -2667,7 +2914,7 @@
             "lineageTag": "5712378a-27e7-471b-a535-d9ca3f98ca66"
           },
           {
-            "name": "Tempo médio de atraso do pedido",
+            "name": "Avg Late Time",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -2682,9 +2929,9 @@
               "VAR vMinutos = INT(MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
               "VAR vSegundos = INT(MOD(MOD(vSegundosTotal, 3600), 60))",
               "return",
-              "CONVERT(vHoras & RIGHT(\"0\"&vMinutos,2), INTEGER)"
+              "CONVERT(vMinutos & RIGHT(\"0\"&vSegundos,2), INTEGER)"
             ],
-            "formatString": "00 min",
+            "formatString": "00m:00s",
             "lineageTag": "596cc8a3-ea15-4723-8e57-aa2653122e9b"
           },
           {
@@ -2699,7 +2946,7 @@
             "name": "título tempo medico de vida cartão",
             "expression": [
               "",
-              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Tempo médio de vida\", \"Life cycle time\")"
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Média de vida\", \"Life cycle time\")"
             ],
             "lineageTag": "1b044f21-a6a5-4c0e-a27b-665759138099"
           },
@@ -2707,7 +2954,7 @@
             "name": "título tempo atraso de vida cartão",
             "expression": [
               "",
-              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Tempo médio de atraso\", \"Avg Late Time\")"
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Média de atraso\", \"Avg Late Time\")"
             ],
             "lineageTag": "576dcb03-4e06-4bd2-92c1-c5e095fc8052"
           },
@@ -2874,7 +3121,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "expression": "CALCULATE([Tempo médio de atraso], DATEADD('Calendar'[Data], -1, MONTH))",
+            "expression": "CALCULATE([Tempo médio de vida (barras empilhadas)], DATEADD('Calendar'[Data], -1, MONTH))",
             "lineageTag": "71a40f1b-673c-40e8-84a4-e4c5b5f09b77"
           },
           {
@@ -2948,8 +3195,8 @@
               "VAR vValor_formatado = FORMAT(vValor, \"0.00%\") ",
               "VAR vMeta = 1",
               "VAR vCor = ",
-              "    IF(vValor < 0, \"#EF5753\",",
-              "        IF(vValor = 0, \"#000000\", \"#75BB92\"))",
+              "    IF(vValor < 0,  \"#75BB92\",",
+              "        IF(vValor = 0, \"#000000\",\"#EF5753\"))",
               "",
               "VAR vDirecaoFlecha = ",
               "    IF(vValor > 0, \"&#9650;\", ",
@@ -2982,7 +3229,7 @@
               "\"data:image/svg+xml;utf8,",
               "<svg width='200' height='80' viewBox='0 0 200 80' fill='none' xmlns='http://www.w3.org/2000/svg'>",
               "    <!-- Texto da Categoria -->",
-              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
+              "    <text id='f003' fill='#000000' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
               "        <tspan x='' y='20'>\" & vRotulo_categoria_texto & \"</tspan>",
               "    </text>",
               "    <!-- Texto de Seta para Cima, para Baixo ou Igual e Dados -->",
@@ -3003,8 +3250,8 @@
               "VAR vValor_formatado = FORMAT(vValor, \"0.00%\") ",
               "",
               "VAR vCor = ",
-              "    IF(vValor < 0, \"#EF5753\",",
-              "        IF(vValor = 0, \"#000000\", \"#75BB92\"))",
+              "    IF(vValor < 0, \"#75BB92\" ,",
+              "        IF(vValor = 0, \"#000000\",\"#EF5753\"))",
               "",
               "VAR vDirecaoFlecha = ",
               "    IF(vValor > 0, \"&#9650;\", ",
@@ -3033,7 +3280,7 @@
               "\"data:image/svg+xml;utf8,",
               "<svg width='200' height='80' viewBox='0 0 200 80' fill='none' xmlns='http://www.w3.org/2000/svg'>",
               "    <!-- Texto da Categoria -->",
-              "    <text id='f003' fill='\" & vRotulo_categoria_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
+              "    <text id='f003' fill='#000000' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
               "        <tspan x='' y='20'>\" & vRotulo_categoria_texto & \"</tspan>",
               "    </text>",
               "    <!-- Texto de Seta para Cima, para Baixo ou Igual e Dados -->",
@@ -3099,6 +3346,146 @@
               " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atraso\", \"Qty Late\")"
             ],
             "lineageTag": "c0eea947-db4a-4bd0-940e-2375d50bec96"
+          },
+          {
+            "name": "Comparativo MoM quantidade de entregas",
+            "expression": [
+              "",
+              "VAR vValor = [Quantidade de pedidos dentro do prazo MoM%]",
+              "VAR vValor_formatado = FORMAT(vValor, \"0.00%\") ",
+              "VAR vMeta = 1",
+              "VAR vCor = ",
+              "    IF(vValor < 0, \"#EF5753\",",
+              "        IF(vValor = 0, \"#000000\", \"#75BB92\"))",
+              "",
+              "VAR vDirecaoFlecha = ",
+              "    IF(vValor > 0, \"&#9650;\", ",
+              "        IF(vValor < 0, \"&#9660;\", \"--\"))",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"MoM:\"",
+              "VAR vRotulo_categoria_cor = vCor",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_dados_cor = vCor",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 110",
+              "",
+              "VAR vBarra_altura = 15",
+              "VAR vBarra_progresso_cor = \"#21A0AA\"",
+              "VAR vBarra_fundo_opacidade = 2",
+              "VAR vLinha_meta_larg = 3",
+              "VAR vLinha_meta_cor = \"#3f3f3f\"",
+              "VAR vCor_fundo = vCor",
+              "",
+              "RETURN",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='80' viewBox='0 0 200 80' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='#000000' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
+              "        <tspan x='' y='20'>\" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "    <!-- Texto de Seta para Cima, para Baixo ou Igual e Dados -->",
+              "    <text id='f006' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"' text-anchor='middle' dominant-baseline='middle'>",
+              "        <tspan x='70' y='17'>\" & vDirecaoFlecha & \" \" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "</svg>",
+              "\""
+            ],
+            "lineageTag": "e95de6cd-9db2-42f8-81d0-170df80e5755"
+          },
+          {
+            "name": "Comparativo MoM quantidade fora do prazo",
+            "expression": [
+              "",
+              "VAR vValor = [Quantidade de pedidos fora do prazo MoM%]",
+              "VAR vValor_formatado = FORMAT(vValor, \"0.00%\") ",
+              "",
+              "VAR vCor = ",
+              "    IF(vValor < 0, \"#75BB92\",",
+              "        IF(vValor = 0, \"#000000\", \"#EF5753\"))",
+              "",
+              "VAR vDirecaoFlecha = ",
+              "    IF(vValor > 0, \"&#9650;\", ",
+              "        IF(vValor < 0, \"&#9660;\", \"--\"))",
+              "",
+              "--------------------------------",
+              "-- FORMATAÇÕES   ",
+              "--------------------------------",
+              "",
+              "VAR vFonte = \"Segoe UI\"",
+              "",
+              "VAR vRotulo_categoria_texto = \"MoM:\"",
+              "VAR vRotulo_categoria_cor = vCor",
+              "VAR vRotulo_categoria_tam = 12",
+              "",
+              "VAR vRotulo_dados_cor = vCor",
+              "VAR vRotulo_dados_tam = 15",
+              "VAR vRotulo_dados_peso = 600",
+              "VAR vRotulo_dados_posicao = 1000000",
+              "",
+              "",
+              "VAR vCor_fundo = vCor",
+              "",
+              "RETURN",
+              "",
+              "\"data:image/svg+xml;utf8,",
+              "<svg width='200' height='80' viewBox='0 0 200 80' fill='none' xmlns='http://www.w3.org/2000/svg'>",
+              "    <!-- Texto da Categoria -->",
+              "    <text id='f003' fill='#000000' font-family='\" & vFonte & \"' font-size='\" & vRotulo_categoria_tam & \"' font-weight='700'>",
+              "        <tspan x='' y='20'>\" & vRotulo_categoria_texto & \"</tspan>",
+              "    </text>",
+              "    <!-- Texto de Seta para Cima, para Baixo ou Igual e Dados -->",
+              "    <text id='f006' fill='\" & vRotulo_dados_cor & \"' font-family='\" & vFonte & \"' font-size='\" & vRotulo_dados_tam & \"' font-weight='\" & vRotulo_dados_peso & \"' text-anchor='middle' dominant-baseline='middle'>",
+              "        <tspan x='70' y='17'>\" & vDirecaoFlecha & \" \" & vValor_formatado & \"</tspan>",
+              "    </text>",
+              "</svg>",
+              "\""
+            ],
+            "lineageTag": "e585a522-45fc-45dc-8a8d-31a63f54b635"
+          },
+          {
+            "name": "Tempo médio de atraso (barras empilhadas)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isCustom\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "/* Order cycle time calcula o tempo médio entre a abertura do pedido até a entrega efetiva do pedido */ ",
+              "VAR vSegundosTotal = AVERAGE(Deliveries[late_time_delivery]) * 86400 -- 86400 quantidade de segundos em um dia",
+              "VAR vHoras = INT(vSegundosTotal/3600)  -- 3600 quantidade de segundos em horas",
+              "VAR vMinutos = INT(MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
+              "VAR vSegundos = INT(MOD(MOD(vSegundosTotal, 3600), 60))",
+              "return",
+              "CONVERT(vMinutos, INTEGER)"
+            ],
+            "formatString": "00 min",
+            "lineageTag": "dd1244a8-d959-41b3-8264-e778b9af311d"
+          },
+          {
+            "name": "Tempo médio de vida",
+            "expression": [
+              "",
+              "/* Order cycle time calcula o tempo médio entre a abertura do pedido até a entrega efetiva do pedido */ ",
+              "VAR vSegundosTotal = AVERAGE(Deliveries[life_cycle_time]) * 86400 -- 86400 quantidade de segundos em um dia",
+              "VAR vHoras = INT(vSegundosTotal/3600)  -- 3600 quantidade de segundos em horas",
+              "VAR vMinutos = INT(MOD(vSegundosTotal,3600)/60) -- 3600/60 quantidade de segundos ",
+              "VAR vSegundos = INT(MOD(MOD(vSegundosTotal, 3600), 60))",
+              "return",
+              "CONVERT(vMinutos & RIGHT(\"0\"&vSegundos,2), INTEGER)"
+            ],
+            "formatString": "0",
+            "lineageTag": "2d1b37d0-6ac4-4e55-b74e-37fbb26506e6"
           }
         ],
         "partitions": [
@@ -3804,6 +4191,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "__PBI_SemanticLinks",
+            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
           }
         ],
         "columns": [
@@ -3813,6 +4204,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "__PBI_SemanticLinks",
+                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
               }
             ],
             "dataType": "string",

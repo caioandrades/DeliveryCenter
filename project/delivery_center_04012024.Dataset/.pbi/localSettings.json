@@ -1,5 +1,10 @@
 {
   "version": "1.0",
   "userConsent": {},
-  "securityBindingsSignature": "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoOeREo0t8UmbggIH/NGukAAAAAACAAAAAAADZgAAwAAAABAAAADsBVhy2+BqmkgusezuYYU2AAAAAASAAACgAAAAEAAAAIPsv0YysXD74PhHLj+8dRxIAAAAftsTgjXy7fqbv5fQUytwbximQyuYbqKJY8BHXPFExZmqpCksWyydDV8L+Tl8O1ykOTo4zb/5SLRWetNGeJ4b5yYhQK086WepFAAAAJ+yPVG84g2+vvvku6F7E8nvLE8K"
+  "remoteArtifacts": [
+    {
+      "datasetId": "c8e6e67e-a349-410b-8281-2312e60b02f3"
+    }
+  ],
+  "securityBindingsSignature": "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoOeREo0t8UmbggIH/NGukAAAAAACAAAAAAADZgAAwAAAABAAAACuglA+7uTm/r3eCOXPT2oNAAAAAASAAACgAAAAEAAAAEzOG/zgeIQy1gCt/3zLfoxIAAAANE14pOqAe/xDyOPsfGkoViLnURF5KLlACl0kVigmQvTo34UR/vtsmy/fiWSw63OKAHis4qlLd/YI5UI52ZeUPfsB58QpF0RFFAAAAF6omdMus0IBF8pvgvpZ2kEl0jz+"
 }
