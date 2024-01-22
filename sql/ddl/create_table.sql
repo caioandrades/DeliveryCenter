@@ -24,11 +24,6 @@ store_longitude bigint,
 --CONSTRAINT fk_hub FOREIGN KEY (hub_id) REFERENCES DELIVERY.HUBS(hub_id)
 )
 
-ALTER TABLE delivery.stores
-ALTER COLUMN store_plan_price TYPE DOUBLE PRECISION
-USING NULLIF(NULLIF(store_plan_price, ''), '')::DOUBLE PRECISION;
-
-
 CREATE TABLE DELIVERY.DRIVERS(
 driver_id INT PRIMARY KEY not null,
 driver_modal varchar(500),
@@ -43,11 +38,6 @@ delivery_distance_meters int,
 delivery_status varchar(500)
 )
 
-ALTER TABLE DELIVERIES
-ADD CONSTRAINT fk_drivers
-FOREIGN KEY (driver_id)
-REFERENCES DRIVERS(driver_id)
-
 
 CREATE TABLE DELIVERY.PAYMENTS(
 payment_id int primary key not null,
@@ -57,7 +47,6 @@ payment_fee float,
 payment_method varchar(500),
 payment_status varchar(50)
 );
-
 
 CREATE TABLE DELIVERY.ORDERS ( 
 order_id INT PRIMARY KEY,
