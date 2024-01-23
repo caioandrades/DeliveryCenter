@@ -419,114 +419,12 @@
             "source": {
               "expression": [
                 "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\"),",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [CreateNavigationProperties=false]),",
                 "    DELIVERY_channels = Origem{[Schema=\"DELIVERY\",Item=\"CHANNELS\"]}[Data]",
                 "in",
                 "    DELIVERY_channels"
               ],
               "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "ClusterMappingTable",
-        "annotations": [
-          {
-            "name": "ClusterMappingTable",
-            "value": "true"
-          },
-          {
-            "name": "__PBI_SemanticLinks",
-            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-          }
-        ],
-        "columns": [
-          {
-            "name": "ClusterId",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "isDataTypeInferred": true,
-            "isNameInferred": true,
-            "lineageTag": "5a384651-80db-4b73-9ab4-5849aedd710a",
-            "sourceColumn": "[ClusterId]",
-            "summarizeBy": "count",
-            "type": "calculatedTableColumn"
-          },
-          {
-            "name": "hub_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
-            "dataType": "string",
-            "isDataTypeInferred": true,
-            "isNameInferred": true,
-            "lineageTag": "b6b5bd83-f01b-4c9d-86f1-ee49f6e2f4d0",
-            "sourceColumn": "[hub_name]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
-          }
-        ],
-        "isHidden": true,
-        "isPrivate": true,
-        "lineageTag": "b600c132-097d-4f27-bf26-36821838c011",
-        "partitions": [
-          {
-            "name": "ClusterMappingTable",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "VAR __DS0FilterTable = ",
-                "\tFILTER(",
-                "\t\tKEEPFILTERS(VALUES('idiomas'[language])),",
-                "\t\tAND('idiomas'[language] IN {\"EN\"}, 'idiomas'[language] IN {\"PT\"})",
-                "\t)",
-                "",
-                "VAR __DS0Core = ",
-                "\tSUMMARIZECOLUMNS(",
-                "\t\t'Deliveries'[hub_name],",
-                "\t\t__DS0FilterTable,",
-                "\t\t\"On_Time_Delivery\", 'Medidas'[On-Time Delivery],",
-                "\t\t\"Quantidade_de_entregas\", 'Medidas'[Quantidade de entregas]",
-                "\t)",
-                "",
-                "VAR __DataTransformT0 = ",
-                "\tKMeansClustering(",
-                "\t\tSELECTCOLUMNS(",
-                "\t\t\t__DS0Core,",
-                "\t\t\t\"hub_name\", 'Deliveries'[hub_name],",
-                "\t\t\t\"On_Time_Delivery\", [On_Time_Delivery],",
-                "\t\t\t\"Quantidade_de_entregas\", [Quantidade_de_entregas]",
-                "\t\t),",
-                "\t\t{(\"[On_Time_Delivery]\", \"Attribute\"),",
-                "\t\t\t(\"[Quantidade_de_entregas]\", \"Attribute\"),",
-                "\t\t\t(\"[hub_name]\", \"Item\")},",
-                "\t\t{(\"[hub_name]\", BLANK()),",
-                "\t\t\t(\"ClusterId\", \"ClusterId\")},",
-                "\t\t-1",
-                "\t)",
-                "",
-                "RETURN __DataTransformT0"
-              ],
-              "retainDataTillForceCalculate": true,
-              "type": "calculated"
             }
           }
         ]
@@ -550,7 +448,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "5bd39140-ab03-40b0-8d0f-330ebe69c81f",
+            "lineageTag": "00e414d8-0a5a-4d82-8a72-001f8809fb49",
             "sourceColumn": "avg_cicle_life",
             "summarizeBy": "sum"
           },
@@ -567,7 +465,7 @@
               }
             ],
             "dataType": "double",
-            "lineageTag": "9f3ea493-cc5d-4902-adff-39f2d690c327",
+            "lineageTag": "7ec33071-0eeb-43a7-8051-de869b8b1c58",
             "sourceColumn": "avg_velocity_km_per_hour",
             "summarizeBy": "sum"
           },
@@ -599,7 +497,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "faf99bec-b91f-420a-9a6b-a5d2fb6cbd13",
+            "lineageTag": "00db5bb9-8cf4-451a-9b6c-4c642f26de40",
             "sourceColumn": "delivery_distance_meters",
             "summarizeBy": "sum"
           },
@@ -626,7 +524,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "e64dc7d9-26e1-4ab2-aedd-85c863de878e",
+            "lineageTag": "8a990ec0-9f07-4d8c-a138-5790f97c758d",
             "sourceColumn": "delivery_status",
             "summarizeBy": "none"
           },
@@ -689,72 +587,12 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
               }
             ],
             "dataType": "string",
             "lineageTag": "718d1555-ece5-4ae3-9d91-7cff768f46c1",
             "sourceColumn": "hub_name",
             "summarizeBy": "none"
-          },
-          {
-            "name": "hub_name (clusters)",
-            "annotations": [
-              {
-                "name": "GroupingDesignState",
-                "value": "{\"Version\":0,\"Sources\":[{\"Name\":\"d\",\"Entity\":\"Deliveries\"}],\"GroupedColumns\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"hub_name\"}}],\"PartitionTable\":{\"Definition\":{\"TableDefinition\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medidas\"},{\"Name\":\"d\",\"Entity\":\"Deliveries\"},{\"Name\":\"i\",\"Entity\":\"idiomas\"}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"language\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'EN'\"}}]]}}},{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"language\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'PT'\"}}]]}}}],\"OrderBy\":[],\"Select\":[{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"output0\"}},\"Property\":\"Deliveries.hub_name\"},\"Name\":\"Deliveries.hub_name\"},{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"output0\"}},\"Property\":\"clusterId\"},\"Name\":\"clusterId\"}],\"GroupBy\":[],\"Transform\":[{\"Name\":\"KMeansClustering\",\"Algorithm\":\"KMeansClustering\",\"Input\":{\"Parameters\":[{\"Literal\":{\"Value\":\"-1L\"},\"Name\":\"NumberOfClusters\"}],\"Table\":{\"Name\":\"input0\",\"Columns\":[{\"Role\":\"Attribute\",\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"On-Time Delivery\"},\"Name\":\"Medidas.On-Time Delivery\"}},{\"Role\":\"Attribute\",\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Quantidade de entregas\"},\"Name\":\"Medidas.Quantidade de entregas\"}},{\"Role\":\"Item\",\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"hub_name\"},\"Name\":\"Deliveries.hub_name\"}}]}},\"Output\":{\"Table\":{\"Name\":\"output0\",\"Columns\":[{\"Expression\":{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"input0\"}},\"Property\":\"Deliveries.hub_name\"},\"Name\":\"Deliveries.hub_name\"}},{\"Role\":\"Series\",\"Expression\":{\"TransformOutputRoleRef\":{\"Role\":\"ClusterId\"},\"Name\":\"clusterId\"}}]}}}]},\"ItemIdColumns\":[\"Deliveries.hub_name\"],\"PartitionIdColumn\":\"clusterId\",\"Partitions\":[{\"PartitionIds\":[{\"Literal\":{\"Value\":\"null\"}}]}],\"DefaultPartitionPrefix\":\"Cluster\"},\"Result\":{\"TableName\":\"ClusterMappingTable\",\"PartitionIdColumn\":\"ClusterId\",\"ItemIdMappings\":[[{\"PartitionTableColumn\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"ClusterMappingTable\"}},\"Property\":\"hub_name\"}},\"SourceTableColumn\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Deliveries\"}},\"Property\":\"hub_name\"}}}]]}}}"
-              },
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "description": "Clusters para hub_name",
-            "expression": [
-              "VAR __ClusterValue = ",
-              "\tLOOKUPVALUE(",
-              "\t\t'ClusterMappingTable'[ClusterId],",
-              "\t\t'ClusterMappingTable'[hub_name],",
-              "\t\t'Deliveries'[hub_name]",
-              "\t)",
-              "",
-              "RETURN",
-              "\tSWITCH(",
-              "\t\t__ClusterValue,",
-              "\t\tBLANK(),",
-              "\t\tBLANK(),",
-              "\t\tCONCATENATE(\"Cluster\", __ClusterValue)",
-              "\t)"
-            ],
-            "extendedProperties": [
-              {
-                "name": "GroupingMetadata",
-                "type": "json",
-                "value": {
-                  "groupedColumns": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Deliveries"
-                          }
-                        },
-                        "Property": "hub_name"
-                      }
-                    }
-                  ],
-                  "version": 0
-                }
-              }
-            ],
-            "isDataTypeInferred": true,
-            "lineageTag": "d35daf31-c04e-4783-9e2f-7b4dcc40a3cc",
-            "summarizeBy": "none",
-            "type": "calculated"
           },
           {
             "name": "hub_state",
@@ -778,7 +616,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "a4cedb12-a81b-4582-9dbc-c77b3bfcfd1f",
+            "lineageTag": "2ae64f78-237c-472e-9944-a1c23bd3e2e5",
             "sourceColumn": "is_checked",
             "summarizeBy": "none"
           },
@@ -792,7 +630,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "b0feae36-ebcc-4315-a088-9a0bcc04149a",
+            "lineageTag": "63c77faf-39c0-4240-8f2f-5fd8a396b939",
             "sourceColumn": "is_checked_in_full",
             "summarizeBy": "sum"
           },
@@ -965,7 +803,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "095c867a-cf59-46d0-b52f-817787266388",
+            "lineageTag": "18d51bdd-8408-4e91-97b9-a4ef51561b65",
             "sourceColumn": "order_metric_cycle_time_second",
             "summarizeBy": "sum"
           },
@@ -1010,7 +848,7 @@
             ],
             "dataType": "dateTime",
             "formatString": "General Date",
-            "lineageTag": "0e9c215d-aad3-43a8-9560-52fe04002439",
+            "lineageTag": "ce5712f2-eaef-4351-a471-5fc047953513",
             "sourceColumn": "order_moment_estimated",
             "summarizeBy": "none"
           },
@@ -1065,7 +903,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "06512f9e-e484-4457-b808-119ba0a25f39",
+            "lineageTag": "b197e094-fa9f-4ac8-822e-f8cd11c43a5f",
             "sourceColumn": "quantity",
             "summarizeBy": "sum"
           },
@@ -1118,7 +956,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_DELIVERIES#(lf)\"]),",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_DELIVERIES#(lf)\", CreateNavigationProperties=false]),",
                 "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Origem,{{\"date\", type date}, {\"horas\", type time}, {\"order_metric_cycle_time\", Int64.Type}}),",
                 "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Tipo Alterado\",\"SHOPPING\",\"\",Replacer.ReplaceText,{\"hub_name\"})",
                 "in",
@@ -1372,10 +1210,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "__PBI_SemanticLinks",
-            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
           }
         ],
         "lineageTag": "25b5b65d-f6a8-4ba8-b4ae-ea6c57546e32",
@@ -1408,16 +1242,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1438,16 +1272,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1492,16 +1326,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",\r",
-                "     \"#0; - #0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",",
+                "     \"#0; - #0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1523,16 +1357,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1800,16 +1634,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1827,16 +1661,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1935,16 +1769,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1999,16 +1833,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -2031,12 +1865,6 @@
           },
           {
             "name": "Quantidade de entregas",
-            "annotations": [
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
@@ -2252,12 +2080,6 @@
           },
           {
             "name": "On-Time Delivery",
-            "annotations": [
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
@@ -2938,7 +2760,7 @@
             "name": "título on-time delivery cartão",
             "expression": [
               "",
-              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"On-Time Delivery\", \"On-Time Rate Delivery\")"
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"On-Time Delivery\", \"On-Time Delivery Rate\")"
             ],
             "lineageTag": "3e282141-8573-41f4-8890-8471ab448b18"
           },
@@ -3010,7 +2832,7 @@
             "name": "título por hora",
             "expression": [
               "",
-              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Acompanhamento de On-Time Delivery por hora\", \"Ordes and On-Time Rate Delivery by hour\")"
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Acompanhamento de On-Time Delivery por hora\", \"Orders and On-Time Rate Delivery by hour\")"
             ],
             "lineageTag": "e2527079-2277-49ea-9209-2aecdcac57c8"
           },
@@ -3343,7 +3165,7 @@
             "name": "título quantidade atraso",
             "expression": [
               "",
-              " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atraso\", \"Qty Late\")"
+              " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atrasos\", \"Qty Late\")"
             ],
             "lineageTag": "c0eea947-db4a-4bd0-940e-2375d50bec96"
           },
@@ -4120,7 +3942,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT #(lf)payment_id, payment_order_id,#(lf)ROUND(payment_amount,2) as payment_amount, #(lf)payment_fee, payment_method,payment_status #(lf)FROM DELIVERY.PAYMENTS\"])",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT #(lf)payment_id, payment_order_id,#(lf)ROUND(payment_amount,2) as payment_amount, #(lf)payment_fee, payment_method,payment_status #(lf)FROM DELIVERY.PAYMENTS\", CreateNavigationProperties=false])",
                 "in",
                 "    Origem"
               ],
@@ -4191,10 +4013,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "__PBI_SemanticLinks",
-            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
           }
         ],
         "columns": [
@@ -4204,10 +4022,6 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
               }
             ],
             "dataType": "string",

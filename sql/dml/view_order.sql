@@ -44,6 +44,16 @@ SELECT order_id,
    -- CAST(s.store_longitude as DECIMAL(10,6)) as store_longitude,
     s.hub_name,
     REPLACE(s.hub_city, '?', 'Ã') as hub_city, 
+    CASE WHEN s.hub_name = 'SAMPA SHOPPING' THEN 'QUARK'
+    WHEN s.hub_name = 'RAP SHOPPING' THEN 'BYTEX'
+    WHEN s.hub_name = 'SQL SHOPPING' THEN 'ZEPHYR'
+    WHEN s.hub_name = 'R SHOPPING' THEN 'NEXUS'
+    WHEN s.hub_name = 'HIP HOP SHOPPING' THEN 'ZENITH'
+    WHEN s.hub_name = 'PURPLE SHOPPING' THEN 'VORTEX'
+    WHEN s.hub_name = 'GREEN SHOPPING' THEN 'INTERP COM'
+    WHEN s.hub_name = 'BLACK SHOPPING' THEN 'NEW BLAZE'
+    WHEN s.hub_name = 'PAGODE SHOPPING' THEN 'METRICA BLAZE'
+    WHEN s.hub_name = 'PYTHON SHOPPING' THEN 'BREEZE'ELSE s.hub_name END hub_name,
     s.hub_state,
     s.store_segment,
     s.store_name
