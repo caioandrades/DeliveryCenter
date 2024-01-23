@@ -419,7 +419,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\"),",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [CreateNavigationProperties=false]),",
                 "    DELIVERY_channels = Origem{[Schema=\"DELIVERY\",Item=\"CHANNELS\"]}[Data]",
                 "in",
                 "    DELIVERY_channels"
@@ -956,7 +956,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_DELIVERIES#(lf)\"]),",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_DELIVERIES#(lf)\", CreateNavigationProperties=false]),",
                 "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Origem,{{\"date\", type date}, {\"horas\", type time}, {\"order_metric_cycle_time\", Int64.Type}}),",
                 "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Tipo Alterado\",\"SHOPPING\",\"\",Replacer.ReplaceText,{\"hub_name\"})",
                 "in",
@@ -1242,16 +1242,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1272,16 +1272,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1326,16 +1326,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",\r",
-                "     \"#0; - #0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",",
+                "     \"#0; - #0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1357,16 +1357,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1634,16 +1634,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1661,16 +1661,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1769,16 +1769,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1833,16 +1833,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -3165,7 +3165,7 @@
             "name": "título quantidade atraso",
             "expression": [
               "",
-              " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atraso\", \"Qty Late\")"
+              " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atrasos\", \"Qty Late\")"
             ],
             "lineageTag": "c0eea947-db4a-4bd0-940e-2375d50bec96"
           },
@@ -3942,7 +3942,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT #(lf)payment_id, payment_order_id,#(lf)ROUND(payment_amount,2) as payment_amount, #(lf)payment_fee, payment_method,payment_status #(lf)FROM DELIVERY.PAYMENTS\"])",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT #(lf)payment_id, payment_order_id,#(lf)ROUND(payment_amount,2) as payment_amount, #(lf)payment_fee, payment_method,payment_status #(lf)FROM DELIVERY.PAYMENTS\", CreateNavigationProperties=false])",
                 "in",
                 "    Origem"
               ],
