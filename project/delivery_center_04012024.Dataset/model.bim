@@ -8,7 +8,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.119.986.0 (23.07)"
+        "value": "2.124.1554.0 (23.12)"
       },
       {
         "name": "PBI_QueryOrder",
@@ -78,7 +78,7 @@
     "sourceQueryCulture": "pt-BR",
     "tables": [
       {
-        "name": "Calendar",
+        "name": "Orders",
         "annotations": [
           {
             "name": "PBI_ResultType",
@@ -87,7 +87,7 @@
         ],
         "columns": [
           {
-            "name": "Ano",
+            "name": "order_id",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -96,10 +96,1462 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "583afffb-860e-4895-9b5c-db2796a5960d",
-            "sourceColumn": "Ano",
+            "lineageTag": "f8853090-4b5c-481d-ae03-26fd1aa5c767",
+            "sourceColumn": "order_id",
             "summarizeBy": "sum"
           },
+          {
+            "name": "store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              },
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "da219afa-a969-4098-bd8d-fac5c1ec1bd2",
+            "sortByColumn": "n_store_id",
+            "sourceColumn": "store_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e76418fe-4b67-4b05-a1fd-d251bab7bdaf",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "008eb039-74f6-4560-9b39-f8856490b938",
+            "sourceColumn": "order_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_delivery_fee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0",
+            "lineageTag": "d95a6838-8017-4ec1-a91a-af695eba08b8",
+            "sourceColumn": "order_delivery_fee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ed37d069-67e7-48d0-aa37-4f27957d2071",
+            "sourceColumn": "order_created_hour",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_minute",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "8227b135-367a-4237-b4bc-91ec545d758d",
+            "sourceColumn": "order_created_minute",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "33687605-5f9e-4679-8c22-d3f0e047e19b",
+            "sourceColumn": "order_created_day",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "29a7f974-33d7-417e-85fc-8928b6ca92c8",
+            "sourceColumn": "order_created_month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e665b2bd-d780-41c2-86c9-5201b05452ee",
+            "sourceColumn": "order_created_year",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_moment_created",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "95eabddb-98a6-499b-80ab-1bda72992522",
+            "sourceColumn": "order_moment_created",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_accepted",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "61ab328e-c7be-4c7a-bf4d-4e4c71da37d8",
+            "sourceColumn": "order_moment_accepted",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "d11d626e-df60-4cbd-b6b9-25a525e8a967",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "horas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "196fb3dc-612a-4459-a239-a731879fb884",
+            "sourceColumn": "horas",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7d3a5227-c684-4292-808a-bf2b29f3f66b",
+            "sourceColumn": "hub_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_city",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8e7f680f-ad1a-4ff8-b775-3269d60d4619",
+            "sourceColumn": "hub_city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_state",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e54a9867-7974-4935-b9fa-0e4323470426",
+            "sourceColumn": "hub_state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_segment",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "17580a2e-3350-4dff-82b0-08096a2dc04c",
+            "sourceColumn": "store_segment",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7cf8f1dd-336f-4ea5-974c-4413a899db85",
+            "sourceColumn": "store_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "n_store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ad3f9e44-0e2d-48f6-96ee-abbd63e9821f",
+            "sourceColumn": "n_store_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "Orders[order_moment_finished] - Orders[order_moment_created]"
+            ],
+            "lineageTag": "d35a1ade-a758-4690-8f0b-48c1c9857fbf",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "order_delivery_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "db90d280-7b58-4592-b28f-fab90e6b4af2",
+            "sourceColumn": "order_delivery_cost",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_moment_finished",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "c75d1809-fea4-46f1-a0c6-10129994710c",
+            "sourceColumn": "order_moment_finished",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_metric_cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f11a6cbe-35ce-4b9d-9ab3-8e01e583450f",
+            "sourceColumn": "order_metric_cycle_time",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "channel_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "54df6e52-a74f-4f96-8ca3-58f2c07917b1",
+            "sourceColumn": "channel_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "97c85bb9-7e72-474d-96e7-19491a699a43",
+            "sourceColumn": "payment_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "delivery_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ecf2696d-d0be-4f15-b3f2-29dac57abaff",
+            "sourceColumn": "delivery_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_moment_collected",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "e6d68d8e-26d0-4c2f-9eb6-ee3678852e52",
+            "sourceColumn": "order_moment_collected",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_in_expedition",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "fd81f949-9f5d-4671-9ace-821127be2221",
+            "sourceColumn": "order_moment_in_expedition",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_delivering",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "16b1eb53-d804-4546-beb7-f3cd47a725eb",
+            "sourceColumn": "order_moment_delivering",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_delivered",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "197859a7-5a89-496e-9cb1-12b4b1682943",
+            "sourceColumn": "order_moment_delivered",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_metric_production_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "fee382c6-f4a1-4f84-b5a0-a3ca482ba275",
+            "sourceColumn": "order_metric_production_time",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "4d867a8c-f6f8-428c-8a86-14c2ad359749",
+        "partitions": [
+          {
+            "name": "Orders",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost:1433\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_ORDERS\"]),",
+                "    #\"Linhas Filtradas\" = Table.SelectRows(Origem, each true),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Linhas Filtradas\",{{\"horas\", type time}, {\"date\", type date}})",
+                "in",
+                "    #\"Tipo Alterado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Channels",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "channel_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "aa47ebe2-469e-42ff-a198-05388311fbd6",
+            "sourceColumn": "channel_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "channel_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "31ff01d0-155b-4c57-a162-7969cd281a11",
+            "sourceColumn": "channel_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "channel_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3eba2dcc-92bc-4831-9aaa-1051468c3d7d",
+            "sourceColumn": "channel_type",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c577aab6-7942-47f0-bfb4-17f4b701e88d",
+        "partitions": [
+          {
+            "name": "Channels",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [CreateNavigationProperties=false]),",
+                "    DELIVERY_channels = Origem{[Schema=\"DELIVERY\",Item=\"CHANNELS\"]}[Data]",
+                "in",
+                "    DELIVERY_channels"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Deliveries",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "delivery_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "22baeb9c-fda1-412b-96ab-ec42e45aa4ad",
+            "sourceColumn": "delivery_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e5d6fe87-02af-4bd9-a9d2-d9c10ae5f5bc",
+            "sourceColumn": "order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "620aa3d5-cd52-462f-8a05-8b65b326a0f5",
+            "sourceColumn": "store_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "n_store_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "686b417e-a779-4e9a-8a33-093fc7e74033",
+            "sourceColumn": "n_store_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "hub_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "718d1555-ece5-4ae3-9d91-7cff768f46c1",
+            "sourceColumn": "hub_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_city",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "670907ea-eaf1-4a5d-915f-9a834a2a8c92",
+            "sourceColumn": "hub_city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hub_state",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f43faef0-8df2-413c-a007-34f5d15573d6",
+            "sourceColumn": "hub_state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2cfec1ac-ee56-4061-94f9-7b5bc24eaa0f",
+            "sourceColumn": "store_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_segment",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "825c8894-25de-460d-81ed-010c3e9a4e77",
+            "sourceColumn": "store_segment",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_created",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "d05a51f6-767d-4109-9a75-469601fea136",
+            "sourceColumn": "order_moment_created",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "lineageTag": "4badde65-6eef-4a0c-bdde-37c078225d9e",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "horas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "1dd0355b-54f4-41e7-92c5-6c5c2ed93f84",
+            "sourceColumn": "horas",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_moment_finished",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "902ad737-74c5-468f-a29c-78c961670556",
+            "sourceColumn": "order_moment_finished",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "721eb4b0-b49e-4883-95b8-7fc7f3c41895",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "87832ecf-4f2b-4486-baa0-8017e7611dc5",
+            "sourceColumn": "order_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_delivery_fee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "b7a9be21-3277-4080-aa7a-68716f27a1a3",
+            "sourceColumn": "order_delivery_fee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_delivery_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "fa2ea0a0-f415-40ba-8a6f-e30cfb1ee1f1",
+            "sourceColumn": "order_delivery_cost",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_metric_cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "de67d802-564f-4c8c-a145-deddbd1ae7aa",
+            "sourceColumn": "order_metric_cycle_time",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "life_cycle_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "Deliveries[order_moment_finished] - Deliveries[order_moment_created]"
+            ],
+            "lineageTag": "d30cf143-03e0-492a-adb3-c9e1633574a4",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "order_metric_production_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "204b24ec-78c7-44fa-872b-49093da6b08e",
+            "sourceColumn": "order_metric_production_time",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_created_hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "4c305eea-201c-460e-921c-ea16ba683144",
+            "sourceColumn": "order_created_hour",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "estimeted_cycle_life",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "AVERAGE(Deliveries[life_cycle_time])"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "eaa0a9f1-73e2-4536-8da1-970a8df8f950",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "order_moment_in_expedition",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "8382288b-b320-4478-bdda-580fdb614d95",
+            "sourceColumn": "order_moment_in_expedition",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "late_time_delivery",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "Deliveries[order_moment_estimated] - Deliveries[order_moment_finished]"
+            ],
+            "lineageTag": "037041a0-0698-45a5-9bfd-7e4f9e399e68",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "quantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b197e094-fa9f-4ac8-822e-f8cd11c43a5f",
+            "sourceColumn": "quantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_moment_estimated",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "ce5712f2-eaef-4351-a471-5fc047953513",
+            "sourceColumn": "order_moment_estimated",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_checked",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2ae64f78-237c-472e-9944-a1c23bd3e2e5",
+            "sourceColumn": "is_checked",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_checked_in_full",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "63c77faf-39c0-4240-8f2f-5fd8a396b939",
+            "sourceColumn": "is_checked_in_full",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "delivery_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8a990ec0-9f07-4d8c-a138-5790f97c758d",
+            "sourceColumn": "delivery_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_distance_meters",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "00db5bb9-8cf4-451a-9b6c-4c642f26de40",
+            "sourceColumn": "delivery_distance_meters",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "order_metric_cycle_time_second",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "18d51bdd-8408-4e91-97b9-a4ef51561b65",
+            "sourceColumn": "order_metric_cycle_time_second",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_cicle_life",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "00e414d8-0a5a-4d82-8a72-001f8809fb49",
+            "sourceColumn": "avg_cicle_life",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_velocity_km_per_hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7ec33071-0eeb-43a7-8051-de869b8b1c58",
+            "sourceColumn": "avg_velocity_km_per_hour",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "eb0a9683-e81d-4175-9be5-15273be55ff6",
+        "partitions": [
+          {
+            "name": "Deliveries",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_DELIVERIES#(lf)\", CreateNavigationProperties=false]),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Origem,{{\"date\", type date}, {\"horas\", type time}, {\"order_metric_cycle_time\", Int64.Type}}),",
+                "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Tipo Alterado\",\"SHOPPING\",\"\",Replacer.ReplaceText,{\"hub_name\"})",
+                "in",
+                "    #\"Valor Substituído\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Payments",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "payment_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c24b8d39-3f7f-4a53-b26f-a1e77808ec96",
+            "sourceColumn": "payment_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "05ea03ad-2bd2-405e-bfe3-bed1efc57169",
+            "sourceColumn": "payment_order_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f91fc2a0-dbc3-47a8-b1a8-8b4885556888",
+            "sourceColumn": "payment_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_fee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a56518ee-e6f8-49f9-8ccb-796572f9f0c0",
+            "sourceColumn": "payment_fee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_method",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bc082240-5b85-4b42-83ea-1baa83294d85",
+            "sourceColumn": "payment_method",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "31018087-e73c-4367-a73b-c761703240d4",
+            "sourceColumn": "payment_status",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "f14fc01a-379f-401e-ad48-61b78fc1b2b3",
+        "partitions": [
+          {
+            "name": "Payments",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT #(lf)payment_id, payment_order_id,#(lf)ROUND(payment_amount,2) as payment_amount, #(lf)payment_fee, payment_method,payment_status #(lf)FROM DELIVERY.PAYMENTS\", CreateNavigationProperties=false])",
+                "in",
+                "    Origem"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Horas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Hora",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "2b9f88dc-c155-4ffc-bd7b-18aa1335c838",
+            "sourceColumn": "Hora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hora Num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0",
+            "lineageTag": "06a91f34-a634-429c-a53c-e4c64787f883",
+            "sortByColumn": "Período Ordem",
+            "sourceColumn": "Hora Num",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Minuto Num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "611c0191-43df-4ad0-b265-30c4df8472eb",
+            "sourceColumn": "Minuto Num",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Segundo Num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6a5cea4b-bc30-4b6a-a657-c103fa3af209",
+            "sourceColumn": "Segundo Num",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "AMPM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d8d4dff8-976b-417c-bea9-436d39636fe5",
+            "sourceColumn": "AMPM",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hora AMPM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "df0fab8a-641d-465c-aed7-1b602032abe2",
+            "sortByColumn": "Período",
+            "sourceColumn": "Hora AMPM",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Período",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "29b21908-9888-46f3-89eb-b8e7fa8a09ae",
+            "sortByColumn": "Período Ordem",
+            "sourceColumn": "Período",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Período Ordem",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "28516f29-d6d4-4ec0-9649-d17c4f0e5279",
+            "sourceColumn": "Período Ordem",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Índice",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6da0e022-088a-4ae5-9e50-732a5607eb34",
+            "sourceColumn": "Índice",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "8d14729a-743d-46db-9e6e-bcde050ca2a5",
+        "partitions": [
+          {
+            "name": "Horas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Lista = {0..86399},",
+                "    ConverteParaTabela = Table.FromList(Lista, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    AlteraTipo = Table.TransformColumnTypes(ConverteParaTabela, {{\"Column1\", Int64.Type}}),",
+                "    AlteraNomeCol = Table.RenameColumns(AlteraTipo, {{\"Column1\", \"Segundo\"}}),",
+                "    ColDuracao = Table.AddColumn(AlteraNomeCol, \"Duração\", each #duration(0, 0, 0, [Segundo]), type duration),",
+                "    ColHora = Table.AddColumn(",
+                "        ColDuracao,",
+                "        \"Hora\",",
+                "        each #time(Duration.Hours([Duração]), Duration.Minutes([Duração]), Duration.Seconds([Duração])),",
+                "        type time",
+                "    ),",
+                "    RemoveCols = Table.RemoveColumns(ColHora, {\"Duração\", \"Segundo\"}),",
+                "    ColHoraNum = Table.AddColumn(RemoveCols, \"Hora Num\", each Time.Hour([Hora]), Int64.Type),",
+                "    ColMinutoNum = Table.AddColumn(ColHoraNum, \"Minuto Num\", each Time.Minute([Hora]), Int64.Type),",
+                "    ColSegundoNum = Table.AddColumn(ColMinutoNum, \"Segundo Num\", each Time.Second([Hora]), Int64.Type),",
+                "    ColAMPM = Table.AddColumn(ColSegundoNum, \"AMPM\", each if [Hora Num] < 12 then \"AM\" else \"PM\", type text),",
+                "    ColHoraAMPM = Table.AddColumn(",
+                "        ColAMPM,",
+                "        \"Hora AMPM\",",
+                "        each",
+                "            if [Hora Num] = 0 then",
+                "                \"12 AM\"",
+                "            else if [Hora Num] >= 1 and [Hora Num] <= 11 then",
+                "                Number.ToText([Hora Num]) & \" AM\"",
+                "            else if [Hora Num] = 12 then",
+                "                \"12 PM\"",
+                "            else if [Hora Num] >= 13 then",
+                "                Number.ToText([Hora Num] - 12) & \" PM\"",
+                "            else",
+                "                \"Unknown\",",
+                "        type text",
+                "    ),",
+                "    ColPeriodo = Table.AddColumn(",
+                "        ColHoraAMPM,",
+                "        \"Período\",",
+                "        each",
+                "            if [Hora Num] >= 0 and [Hora Num] <= 5 then",
+                "                \"12AM to 6AM\"",
+                "            else if [Hora Num] >= 6 and [Hora Num] <= 11 then",
+                "                \"6AM to 12PM\"",
+                "            else if [Hora Num] >= 12 and [Hora Num] <= 17 then",
+                "                \"12PM to 6PM\"",
+                "            else if [Hora Num] >= 18 and [Hora Num] <= 23 then",
+                "                \"6PM to 12AM\"",
+                "            else",
+                "                \"Unknown\",",
+                "        type text",
+                "    ),",
+                "    #\"Valor Substituído\" = Table.ReplaceValue(ColPeriodo,0,24,Replacer.ReplaceValue,{\"Hora Num\"}),",
+                "    ColPeriodoOrdem = Table.AddColumn(",
+                "        #\"Valor Substituído\",",
+                "        \"Período Ordem\",",
+                "        each",
+                "            if [Hora Num] >= 0 and [Hora Num] <= 5 then",
+                "                1",
+                "            else if [Hora Num] >= 6 and [Hora Num] <= 11 then",
+                "                2",
+                "            else if [Hora Num] >= 12 and [Hora Num] <= 17 then",
+                "                3",
+                "            else if [Hora Num] >= 18 and [Hora Num] <= 23 then",
+                "                4",
+                "            else",
+                "                5,",
+                "        Int64.Type",
+                "    ),",
+                "    #\"Índice Adicionado\" = Table.AddIndexColumn(ColPeriodoOrdem, \"Índice\", 0, 1, Int64.Type)",
+                "in",
+                "    #\"Índice Adicionado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Calendar",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
           {
             "name": "Data",
             "annotations": [
@@ -118,6 +1570,20 @@
             "lineageTag": "1fe49080-dbf2-4a29-bcd2-40142c51c69c",
             "sourceColumn": "Data",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "583afffb-860e-4895-9b5c-db2796a5960d",
+            "sourceColumn": "Ano",
+            "summarizeBy": "sum"
           },
           {
             "name": "Mês",
@@ -153,7 +1619,7 @@
             "summarizeBy": "none"
           },
           {
-            "name": "Num Mes",
+            "name": "Semana do Mês",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -162,22 +1628,8 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "a1745a52-fe9f-475c-b650-f49b52a421ad",
-            "sourceColumn": "Num Mes",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Número da semana do Ano",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "7252bdf4-9825-4645-bbe2-ae6ee03e3039",
-            "sourceColumn": "Número da semana do Ano",
+            "lineageTag": "cb0ed0b3-49b4-4d4f-ae58-d1202cb3d593",
+            "sourceColumn": "Semana do Mês",
             "summarizeBy": "sum"
           },
           {
@@ -192,6 +1644,20 @@
             "lineageTag": "4faa7697-b3f9-4e2b-ad36-64cbdc1d9aba",
             "sourceColumn": "Semana",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Número da semana do Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7252bdf4-9825-4645-bbe2-ae6ee03e3039",
+            "sourceColumn": "Número da semana do Ano",
+            "summarizeBy": "sum"
           },
           {
             "name": "Semana do Ano",
@@ -213,7 +1679,7 @@
             "summarizeBy": "none"
           },
           {
-            "name": "Semana do Mês",
+            "name": "Num Mes",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -222,8 +1688,8 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "cb0ed0b3-49b4-4d4f-ae58-d1202cb3d593",
-            "sourceColumn": "Semana do Mês",
+            "lineageTag": "a1745a52-fe9f-475c-b650-f49b52a421ad",
+            "sourceColumn": "Num Mes",
             "summarizeBy": "sum"
           }
         ],
@@ -362,1020 +1828,11 @@
         ]
       },
       {
-        "name": "Channels",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "channel_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "aa47ebe2-469e-42ff-a198-05388311fbd6",
-            "sourceColumn": "channel_id",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "channel_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "31ff01d0-155b-4c57-a162-7969cd281a11",
-            "sourceColumn": "channel_name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "channel_type",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "3eba2dcc-92bc-4831-9aaa-1051468c3d7d",
-            "sourceColumn": "channel_type",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "c577aab6-7942-47f0-bfb4-17f4b701e88d",
-        "partitions": [
-          {
-            "name": "Channels",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\"),",
-                "    DELIVERY_channels = Origem{[Schema=\"DELIVERY\",Item=\"CHANNELS\"]}[Data]",
-                "in",
-                "    DELIVERY_channels"
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "ClusterMappingTable",
-        "annotations": [
-          {
-            "name": "ClusterMappingTable",
-            "value": "true"
-          },
-          {
-            "name": "__PBI_SemanticLinks",
-            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-          }
-        ],
-        "columns": [
-          {
-            "name": "ClusterId",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "isDataTypeInferred": true,
-            "isNameInferred": true,
-            "lineageTag": "5a384651-80db-4b73-9ab4-5849aedd710a",
-            "sourceColumn": "[ClusterId]",
-            "summarizeBy": "count",
-            "type": "calculatedTableColumn"
-          },
-          {
-            "name": "hub_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
-            "dataType": "string",
-            "isDataTypeInferred": true,
-            "isNameInferred": true,
-            "lineageTag": "b6b5bd83-f01b-4c9d-86f1-ee49f6e2f4d0",
-            "sourceColumn": "[hub_name]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
-          }
-        ],
-        "isHidden": true,
-        "isPrivate": true,
-        "lineageTag": "b600c132-097d-4f27-bf26-36821838c011",
-        "partitions": [
-          {
-            "name": "ClusterMappingTable",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "VAR __DS0FilterTable = ",
-                "\tFILTER(",
-                "\t\tKEEPFILTERS(VALUES('idiomas'[language])),",
-                "\t\tAND('idiomas'[language] IN {\"EN\"}, 'idiomas'[language] IN {\"PT\"})",
-                "\t)",
-                "",
-                "VAR __DS0Core = ",
-                "\tSUMMARIZECOLUMNS(",
-                "\t\t'Deliveries'[hub_name],",
-                "\t\t__DS0FilterTable,",
-                "\t\t\"On_Time_Delivery\", 'Medidas'[On-Time Delivery],",
-                "\t\t\"Quantidade_de_entregas\", 'Medidas'[Quantidade de entregas]",
-                "\t)",
-                "",
-                "VAR __DataTransformT0 = ",
-                "\tKMeansClustering(",
-                "\t\tSELECTCOLUMNS(",
-                "\t\t\t__DS0Core,",
-                "\t\t\t\"hub_name\", 'Deliveries'[hub_name],",
-                "\t\t\t\"On_Time_Delivery\", [On_Time_Delivery],",
-                "\t\t\t\"Quantidade_de_entregas\", [Quantidade_de_entregas]",
-                "\t\t),",
-                "\t\t{(\"[On_Time_Delivery]\", \"Attribute\"),",
-                "\t\t\t(\"[Quantidade_de_entregas]\", \"Attribute\"),",
-                "\t\t\t(\"[hub_name]\", \"Item\")},",
-                "\t\t{(\"[hub_name]\", BLANK()),",
-                "\t\t\t(\"ClusterId\", \"ClusterId\")},",
-                "\t\t-1",
-                "\t)",
-                "",
-                "RETURN __DataTransformT0"
-              ],
-              "retainDataTillForceCalculate": true,
-              "type": "calculated"
-            }
-          }
-        ]
-      },
-      {
-        "name": "Deliveries",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "avg_cicle_life",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "5bd39140-ab03-40b0-8d0f-330ebe69c81f",
-            "sourceColumn": "avg_cicle_life",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "avg_velocity_km_per_hour",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "9f3ea493-cc5d-4902-adff-39f2d690c327",
-            "sourceColumn": "avg_velocity_km_per_hour",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Date"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "Short Date",
-            "lineageTag": "4badde65-6eef-4a0c-bdde-37c078225d9e",
-            "sourceColumn": "date",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "delivery_distance_meters",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "faf99bec-b91f-420a-9a6b-a5d2fb6cbd13",
-            "sourceColumn": "delivery_distance_meters",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "delivery_order_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "22baeb9c-fda1-412b-96ab-ec42e45aa4ad",
-            "sourceColumn": "delivery_order_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "delivery_status",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "e64dc7d9-26e1-4ab2-aedd-85c863de878e",
-            "sourceColumn": "delivery_status",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "estimeted_cycle_life",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "expression": [
-              "",
-              "AVERAGE(Deliveries[life_cycle_time])"
-            ],
-            "isDataTypeInferred": true,
-            "lineageTag": "eaa0a9f1-73e2-4536-8da1-970a8df8f950",
-            "summarizeBy": "sum",
-            "type": "calculated"
-          },
-          {
-            "name": "horas",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Time"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "Long Time",
-            "lineageTag": "1dd0355b-54f4-41e7-92c5-6c5c2ed93f84",
-            "sourceColumn": "horas",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "hub_city",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "670907ea-eaf1-4a5d-915f-9a834a2a8c92",
-            "sourceColumn": "hub_city",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "hub_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "718d1555-ece5-4ae3-9d91-7cff768f46c1",
-            "sourceColumn": "hub_name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "hub_name (clusters)",
-            "annotations": [
-              {
-                "name": "GroupingDesignState",
-                "value": "{\"Version\":0,\"Sources\":[{\"Name\":\"d\",\"Entity\":\"Deliveries\"}],\"GroupedColumns\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"hub_name\"}}],\"PartitionTable\":{\"Definition\":{\"TableDefinition\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medidas\"},{\"Name\":\"d\",\"Entity\":\"Deliveries\"},{\"Name\":\"i\",\"Entity\":\"idiomas\"}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"language\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'EN'\"}}]]}}},{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"language\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'PT'\"}}]]}}}],\"OrderBy\":[],\"Select\":[{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"output0\"}},\"Property\":\"Deliveries.hub_name\"},\"Name\":\"Deliveries.hub_name\"},{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"output0\"}},\"Property\":\"clusterId\"},\"Name\":\"clusterId\"}],\"GroupBy\":[],\"Transform\":[{\"Name\":\"KMeansClustering\",\"Algorithm\":\"KMeansClustering\",\"Input\":{\"Parameters\":[{\"Literal\":{\"Value\":\"-1L\"},\"Name\":\"NumberOfClusters\"}],\"Table\":{\"Name\":\"input0\",\"Columns\":[{\"Role\":\"Attribute\",\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"On-Time Delivery\"},\"Name\":\"Medidas.On-Time Delivery\"}},{\"Role\":\"Attribute\",\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Quantidade de entregas\"},\"Name\":\"Medidas.Quantidade de entregas\"}},{\"Role\":\"Item\",\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"hub_name\"},\"Name\":\"Deliveries.hub_name\"}}]}},\"Output\":{\"Table\":{\"Name\":\"output0\",\"Columns\":[{\"Expression\":{\"Column\":{\"Expression\":{\"TransformTableRef\":{\"Source\":\"input0\"}},\"Property\":\"Deliveries.hub_name\"},\"Name\":\"Deliveries.hub_name\"}},{\"Role\":\"Series\",\"Expression\":{\"TransformOutputRoleRef\":{\"Role\":\"ClusterId\"},\"Name\":\"clusterId\"}}]}}}]},\"ItemIdColumns\":[\"Deliveries.hub_name\"],\"PartitionIdColumn\":\"clusterId\",\"Partitions\":[{\"PartitionIds\":[{\"Literal\":{\"Value\":\"null\"}}]}],\"DefaultPartitionPrefix\":\"Cluster\"},\"Result\":{\"TableName\":\"ClusterMappingTable\",\"PartitionIdColumn\":\"ClusterId\",\"ItemIdMappings\":[[{\"PartitionTableColumn\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"ClusterMappingTable\"}},\"Property\":\"hub_name\"}},\"SourceTableColumn\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Deliveries\"}},\"Property\":\"hub_name\"}}}]]}}}"
-              },
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "description": "Clusters para hub_name",
-            "expression": [
-              "VAR __ClusterValue = ",
-              "\tLOOKUPVALUE(",
-              "\t\t'ClusterMappingTable'[ClusterId],",
-              "\t\t'ClusterMappingTable'[hub_name],",
-              "\t\t'Deliveries'[hub_name]",
-              "\t)",
-              "",
-              "RETURN",
-              "\tSWITCH(",
-              "\t\t__ClusterValue,",
-              "\t\tBLANK(),",
-              "\t\tBLANK(),",
-              "\t\tCONCATENATE(\"Cluster\", __ClusterValue)",
-              "\t)"
-            ],
-            "extendedProperties": [
-              {
-                "name": "GroupingMetadata",
-                "type": "json",
-                "value": {
-                  "groupedColumns": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Deliveries"
-                          }
-                        },
-                        "Property": "hub_name"
-                      }
-                    }
-                  ],
-                  "version": 0
-                }
-              }
-            ],
-            "isDataTypeInferred": true,
-            "lineageTag": "d35daf31-c04e-4783-9e2f-7b4dcc40a3cc",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "hub_state",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "f43faef0-8df2-413c-a007-34f5d15573d6",
-            "sourceColumn": "hub_state",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "is_checked",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "a4cedb12-a81b-4582-9dbc-c77b3bfcfd1f",
-            "sourceColumn": "is_checked",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "is_checked_in_full",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "b0feae36-ebcc-4315-a088-9a0bcc04149a",
-            "sourceColumn": "is_checked_in_full",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "late_time_delivery",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "DataType"
-              }
-            ],
-            "dataType": "double",
-            "expression": [
-              "",
-              "Deliveries[order_moment_estimated] - Deliveries[order_moment_finished]"
-            ],
-            "lineageTag": "037041a0-0698-45a5-9bfd-7e4f9e399e68",
-            "summarizeBy": "sum",
-            "type": "calculated"
-          },
-          {
-            "name": "life_cycle_time",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "DataType"
-              }
-            ],
-            "dataType": "double",
-            "expression": [
-              "",
-              "Deliveries[order_moment_finished] - Deliveries[order_moment_created]"
-            ],
-            "lineageTag": "d30cf143-03e0-492a-adb3-c9e1633574a4",
-            "summarizeBy": "sum",
-            "type": "calculated"
-          },
-          {
-            "name": "n_store_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "686b417e-a779-4e9a-8a33-093fc7e74033",
-            "sourceColumn": "n_store_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_amount",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "87832ecf-4f2b-4486-baa0-8017e7611dc5",
-            "sourceColumn": "order_amount",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_created_hour",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "4c305eea-201c-460e-921c-ea16ba683144",
-            "sourceColumn": "order_created_hour",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_delivery_cost",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "fa2ea0a0-f415-40ba-8a6f-e30cfb1ee1f1",
-            "sourceColumn": "order_delivery_cost",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_delivery_fee",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "b7a9be21-3277-4080-aa7a-68716f27a1a3",
-            "sourceColumn": "order_delivery_fee",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "e5d6fe87-02af-4bd9-a9d2-d9c10ae5f5bc",
-            "sourceColumn": "order_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_metric_cycle_time",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "de67d802-564f-4c8c-a145-deddbd1ae7aa",
-            "sourceColumn": "order_metric_cycle_time",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_metric_cycle_time_second",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "095c867a-cf59-46d0-b52f-817787266388",
-            "sourceColumn": "order_metric_cycle_time_second",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_metric_production_time",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "204b24ec-78c7-44fa-872b-49093da6b08e",
-            "sourceColumn": "order_metric_production_time",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_moment_created",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "d05a51f6-767d-4109-9a75-469601fea136",
-            "sourceColumn": "order_moment_created",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_estimated",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "0e9c215d-aad3-43a8-9560-52fe04002439",
-            "sourceColumn": "order_moment_estimated",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_finished",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "902ad737-74c5-468f-a29c-78c961670556",
-            "sourceColumn": "order_moment_finished",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_in_expedition",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "8382288b-b320-4478-bdda-580fdb614d95",
-            "sourceColumn": "order_moment_in_expedition",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_status",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "721eb4b0-b49e-4883-95b8-7fc7f3c41895",
-            "sourceColumn": "order_status",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "quantity",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "06512f9e-e484-4457-b808-119ba0a25f39",
-            "sourceColumn": "quantity",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "store_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "620aa3d5-cd52-462f-8a05-8b65b326a0f5",
-            "sourceColumn": "store_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "store_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "2cfec1ac-ee56-4061-94f9-7b5bc24eaa0f",
-            "sourceColumn": "store_name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "store_segment",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "825c8894-25de-460d-81ed-010c3e9a4e77",
-            "sourceColumn": "store_segment",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "eb0a9683-e81d-4175-9be5-15273be55ff6",
-        "partitions": [
-          {
-            "name": "Deliveries",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_DELIVERIES#(lf)\"]),",
-                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Origem,{{\"date\", type date}, {\"horas\", type time}, {\"order_metric_cycle_time\", Int64.Type}}),",
-                "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Tipo Alterado\",\"SHOPPING\",\"\",Replacer.ReplaceText,{\"hub_name\"})",
-                "in",
-                "    #\"Valor Substituído\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "Horas",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "AMPM",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "d8d4dff8-976b-417c-bea9-436d39636fe5",
-            "sourceColumn": "AMPM",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Hora",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Time"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "Long Time",
-            "lineageTag": "2b9f88dc-c155-4ffc-bd7b-18aa1335c838",
-            "sourceColumn": "Hora",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Hora AMPM",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "SortByColumn"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "df0fab8a-641d-465c-aed7-1b602032abe2",
-            "sortByColumn": "Período",
-            "sourceColumn": "Hora AMPM",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Hora Num",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "SortByColumn"
-              }
-            ],
-            "dataType": "double",
-            "formatString": "0",
-            "lineageTag": "06a91f34-a634-429c-a53c-e4c64787f883",
-            "sortByColumn": "Período Ordem",
-            "sourceColumn": "Hora Num",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Minuto Num",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "611c0191-43df-4ad0-b265-30c4df8472eb",
-            "sourceColumn": "Minuto Num",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Período",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "SortByColumn"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "29b21908-9888-46f3-89eb-b8e7fa8a09ae",
-            "sortByColumn": "Período Ordem",
-            "sourceColumn": "Período",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Período Ordem",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "28516f29-d6d4-4ec0-9649-d17c4f0e5279",
-            "sourceColumn": "Período Ordem",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Segundo Num",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "6a5cea4b-bc30-4b6a-a657-c103fa3af209",
-            "sourceColumn": "Segundo Num",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Índice",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "6da0e022-088a-4ae5-9e50-732a5607eb34",
-            "sourceColumn": "Índice",
-            "summarizeBy": "sum"
-          }
-        ],
-        "lineageTag": "8d14729a-743d-46db-9e6e-bcde050ca2a5",
-        "partitions": [
-          {
-            "name": "Horas",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Lista = {0..86399},",
-                "    ConverteParaTabela = Table.FromList(Lista, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
-                "    AlteraTipo = Table.TransformColumnTypes(ConverteParaTabela, {{\"Column1\", Int64.Type}}),",
-                "    AlteraNomeCol = Table.RenameColumns(AlteraTipo, {{\"Column1\", \"Segundo\"}}),",
-                "    ColDuracao = Table.AddColumn(AlteraNomeCol, \"Duração\", each #duration(0, 0, 0, [Segundo]), type duration),",
-                "    ColHora = Table.AddColumn(",
-                "        ColDuracao,",
-                "        \"Hora\",",
-                "        each #time(Duration.Hours([Duração]), Duration.Minutes([Duração]), Duration.Seconds([Duração])),",
-                "        type time",
-                "    ),",
-                "    RemoveCols = Table.RemoveColumns(ColHora, {\"Duração\", \"Segundo\"}),",
-                "    ColHoraNum = Table.AddColumn(RemoveCols, \"Hora Num\", each Time.Hour([Hora]), Int64.Type),",
-                "    ColMinutoNum = Table.AddColumn(ColHoraNum, \"Minuto Num\", each Time.Minute([Hora]), Int64.Type),",
-                "    ColSegundoNum = Table.AddColumn(ColMinutoNum, \"Segundo Num\", each Time.Second([Hora]), Int64.Type),",
-                "    ColAMPM = Table.AddColumn(ColSegundoNum, \"AMPM\", each if [Hora Num] < 12 then \"AM\" else \"PM\", type text),",
-                "    ColHoraAMPM = Table.AddColumn(",
-                "        ColAMPM,",
-                "        \"Hora AMPM\",",
-                "        each",
-                "            if [Hora Num] = 0 then",
-                "                \"12 AM\"",
-                "            else if [Hora Num] >= 1 and [Hora Num] <= 11 then",
-                "                Number.ToText([Hora Num]) & \" AM\"",
-                "            else if [Hora Num] = 12 then",
-                "                \"12 PM\"",
-                "            else if [Hora Num] >= 13 then",
-                "                Number.ToText([Hora Num] - 12) & \" PM\"",
-                "            else",
-                "                \"Unknown\",",
-                "        type text",
-                "    ),",
-                "    ColPeriodo = Table.AddColumn(",
-                "        ColHoraAMPM,",
-                "        \"Período\",",
-                "        each",
-                "            if [Hora Num] >= 0 and [Hora Num] <= 5 then",
-                "                \"12AM to 6AM\"",
-                "            else if [Hora Num] >= 6 and [Hora Num] <= 11 then",
-                "                \"6AM to 12PM\"",
-                "            else if [Hora Num] >= 12 and [Hora Num] <= 17 then",
-                "                \"12PM to 6PM\"",
-                "            else if [Hora Num] >= 18 and [Hora Num] <= 23 then",
-                "                \"6PM to 12AM\"",
-                "            else",
-                "                \"Unknown\",",
-                "        type text",
-                "    ),",
-                "    #\"Valor Substituído\" = Table.ReplaceValue(ColPeriodo,0,24,Replacer.ReplaceValue,{\"Hora Num\"}),",
-                "    ColPeriodoOrdem = Table.AddColumn(",
-                "        #\"Valor Substituído\",",
-                "        \"Período Ordem\",",
-                "        each",
-                "            if [Hora Num] >= 0 and [Hora Num] <= 5 then",
-                "                1",
-                "            else if [Hora Num] >= 6 and [Hora Num] <= 11 then",
-                "                2",
-                "            else if [Hora Num] >= 12 and [Hora Num] <= 17 then",
-                "                3",
-                "            else if [Hora Num] >= 18 and [Hora Num] <= 23 then",
-                "                4",
-                "            else",
-                "                5,",
-                "        Int64.Type",
-                "    ),",
-                "    #\"Índice Adicionado\" = Table.AddIndexColumn(ColPeriodoOrdem, \"Índice\", 0, 1, Int64.Type)",
-                "in",
-                "    #\"Índice Adicionado\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
         "name": "Medidas",
         "annotations": [
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "__PBI_SemanticLinks",
-            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
           }
         ],
         "lineageTag": "25b5b65d-f6a8-4ba8-b4ae-ea6c57546e32",
@@ -1408,16 +1865,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1438,16 +1895,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1492,16 +1949,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",\r",
-                "     \"#0; - #0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"#,0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"#,#0,K; -#,#0,.0K\",",
+                "     \"#0; - #0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1523,16 +1980,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1800,16 +2257,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1827,16 +2284,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\""
               ]
             },
@@ -1935,16 +2392,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -1999,16 +2456,16 @@
             ],
             "formatStringDefinition": {
               "expression": [
-                "var _Valor = SELECTEDMEASURE()\r",
-                "var _Formato =\r",
-                "SWITCH(\r",
-                "    TRUE(),\r",
-                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", \r",
-                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", \r",
-                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",\r",
-                "     \"R$#,0.0; - #,0.0\"\r",
-                ")\r",
-                "return\r",
+                "var _Valor = SELECTEDMEASURE()",
+                "var _Formato =",
+                "SWITCH(",
+                "    TRUE(),",
+                "    _Valor >= 100000000, \"R$#,#0,,,.0B; -#,#0,,,.0B\", ",
+                "    _Valor >= 1000000, \"R$#,#0,,.0M; -#,#0,,.0M\", ",
+                "    _Valor >= 1000, \"R$#,#0,.0K; -#,#0,.0K\",",
+                "     \"R$#,0.0; - #,0.0\"",
+                ")",
+                "return",
                 "\"\"\"\" & IF(FORMAT(SELECTEDMEASURE(), _Formato) = BLANK(),0, FORMAT(SELECTEDMEASURE(), _Formato)  & \"\"\"\")"
               ]
             },
@@ -2031,12 +2488,6 @@
           },
           {
             "name": "Quantidade de entregas",
-            "annotations": [
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
@@ -2252,12 +2703,6 @@
           },
           {
             "name": "On-Time Delivery",
-            "annotations": [
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
-              }
-            ],
             "displayFolder": "Entregas",
             "expression": [
               "",
@@ -2938,7 +3383,7 @@
             "name": "título on-time delivery cartão",
             "expression": [
               "",
-              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"On-Time Delivery\", \"On-Time Rate Delivery\")"
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"On-Time Delivery\", \"On-Time Delivery Rate\")"
             ],
             "lineageTag": "3e282141-8573-41f4-8890-8471ab448b18"
           },
@@ -3010,7 +3455,7 @@
             "name": "título por hora",
             "expression": [
               "",
-              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Acompanhamento de On-Time Delivery por hora\", \"Ordes and On-Time Rate Delivery by hour\")"
+              "IF(ALLSELECTED(idiomas[language]) = \"PT\", \"Acompanhamento de On-Time Delivery por hora\", \"Orders and On-Time Rate Delivery by hour\")"
             ],
             "lineageTag": "e2527079-2277-49ea-9209-2aecdcac57c8"
           },
@@ -3343,7 +3788,7 @@
             "name": "título quantidade atraso",
             "expression": [
               "",
-              " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atraso\", \"Qty Late\")"
+              " IF(SELECTEDVALUE(idiomas[language]) = \"PT\", \"Qtde. Atrasos\", \"Qty Late\")"
             ],
             "lineageTag": "c0eea947-db4a-4bd0-940e-2375d50bec96"
           },
@@ -3507,629 +3952,6 @@
         ]
       },
       {
-        "name": "Orders",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "channel_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "54df6e52-a74f-4f96-8ca3-58f2c07917b1",
-            "sourceColumn": "channel_id",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "cycle_time",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "DataType"
-              }
-            ],
-            "dataType": "double",
-            "expression": [
-              "",
-              "Orders[order_moment_finished] - Orders[order_moment_created]"
-            ],
-            "lineageTag": "d35a1ade-a758-4690-8f0b-48c1c9857fbf",
-            "summarizeBy": "sum",
-            "type": "calculated"
-          },
-          {
-            "name": "date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Date"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "Long Date",
-            "lineageTag": "d11d626e-df60-4cbd-b6b9-25a525e8a967",
-            "sourceColumn": "date",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "delivery_order_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "ecf2696d-d0be-4f15-b3f2-29dac57abaff",
-            "sourceColumn": "delivery_order_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "horas",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Time"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "Long Time",
-            "lineageTag": "196fb3dc-612a-4459-a239-a731879fb884",
-            "sourceColumn": "horas",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "hub_city",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "8e7f680f-ad1a-4ff8-b775-3269d60d4619",
-            "sourceColumn": "hub_city",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "hub_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "7d3a5227-c684-4292-808a-bf2b29f3f66b",
-            "sourceColumn": "hub_name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "hub_state",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "e54a9867-7974-4935-b9fa-0e4323470426",
-            "sourceColumn": "hub_state",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "n_store_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "ad3f9e44-0e2d-48f6-96ee-abbd63e9821f",
-            "sourceColumn": "n_store_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_amount",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "008eb039-74f6-4560-9b39-f8856490b938",
-            "sourceColumn": "order_amount",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_created_day",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "33687605-5f9e-4679-8c22-d3f0e047e19b",
-            "sourceColumn": "order_created_day",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_created_hour",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "ed37d069-67e7-48d0-aa37-4f27957d2071",
-            "sourceColumn": "order_created_hour",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_created_minute",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "8227b135-367a-4237-b4bc-91ec545d758d",
-            "sourceColumn": "order_created_minute",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_created_month",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "29a7f974-33d7-417e-85fc-8928b6ca92c8",
-            "sourceColumn": "order_created_month",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_created_year",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "e665b2bd-d780-41c2-86c9-5201b05452ee",
-            "sourceColumn": "order_created_year",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_delivery_cost",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "db90d280-7b58-4592-b28f-fab90e6b4af2",
-            "sourceColumn": "order_delivery_cost",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_delivery_fee",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "double",
-            "formatString": "0",
-            "lineageTag": "d95a6838-8017-4ec1-a91a-af695eba08b8",
-            "sourceColumn": "order_delivery_fee",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "f8853090-4b5c-481d-ae03-26fd1aa5c767",
-            "sourceColumn": "order_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_metric_cycle_time",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "f11a6cbe-35ce-4b9d-9ab3-8e01e583450f",
-            "sourceColumn": "order_metric_cycle_time",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_metric_production_time",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "fee382c6-f4a1-4f84-b5a0-a3ca482ba275",
-            "sourceColumn": "order_metric_production_time",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "order_moment_accepted",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "61ab328e-c7be-4c7a-bf4d-4e4c71da37d8",
-            "sourceColumn": "order_moment_accepted",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_collected",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "e6d68d8e-26d0-4c2f-9eb6-ee3678852e52",
-            "sourceColumn": "order_moment_collected",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_created",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "95eabddb-98a6-499b-80ab-1bda72992522",
-            "sourceColumn": "order_moment_created",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_delivered",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "197859a7-5a89-496e-9cb1-12b4b1682943",
-            "sourceColumn": "order_moment_delivered",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_delivering",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "16b1eb53-d804-4546-beb7-f3cd47a725eb",
-            "sourceColumn": "order_moment_delivering",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_finished",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "c75d1809-fea4-46f1-a0c6-10129994710c",
-            "sourceColumn": "order_moment_finished",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_moment_in_expedition",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "fd81f949-9f5d-4671-9ace-821127be2221",
-            "sourceColumn": "order_moment_in_expedition",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "order_status",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "e76418fe-4b67-4b05-a1fd-d251bab7bdaf",
-            "sourceColumn": "order_status",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "payment_order_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "97c85bb9-7e72-474d-96e7-19491a699a43",
-            "sourceColumn": "payment_order_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "store_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "DataType"
-              },
-              {
-                "property": "SortByColumn"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "da219afa-a969-4098-bd8d-fac5c1ec1bd2",
-            "sortByColumn": "n_store_id",
-            "sourceColumn": "store_id",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "store_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "7cf8f1dd-336f-4ea5-974c-4413a899db85",
-            "sourceColumn": "store_name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "store_segment",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "17580a2e-3350-4dff-82b0-08096a2dc04c",
-            "sourceColumn": "store_segment",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "4d867a8c-f6f8-428c-8a86-14c2ad359749",
-        "partitions": [
-          {
-            "name": "Orders",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Origem = Sql.Database(\"localhost:1433\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_ORDERS\"]),",
-                "    #\"Linhas Filtradas\" = Table.SelectRows(Origem, each true),",
-                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Linhas Filtradas\",{{\"horas\", type time}, {\"date\", type date}})",
-                "in",
-                "    #\"Tipo Alterado\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "Payments",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "payment_amount",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "f91fc2a0-dbc3-47a8-b1a8-8b4885556888",
-            "sourceColumn": "payment_amount",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "payment_fee",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "a56518ee-e6f8-49f9-8ccb-796572f9f0c0",
-            "sourceColumn": "payment_fee",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "payment_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "c24b8d39-3f7f-4a53-b26f-a1e77808ec96",
-            "sourceColumn": "payment_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "payment_method",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "bc082240-5b85-4b42-83ea-1baa83294d85",
-            "sourceColumn": "payment_method",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "payment_order_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "05ea03ad-2bd2-405e-bfe3-bed1efc57169",
-            "sourceColumn": "payment_order_id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "payment_status",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "31018087-e73c-4367-a73b-c761703240d4",
-            "sourceColumn": "payment_status",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "f14fc01a-379f-401e-ad48-61b78fc1b2b3",
-        "partitions": [
-          {
-            "name": "Payments",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT #(lf)payment_id, payment_order_id,#(lf)ROUND(payment_amount,2) as payment_amount, #(lf)payment_fee, payment_method,payment_status #(lf)FROM DELIVERY.PAYMENTS\"])",
-                "in",
-                "    Origem"
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
         "name": "TOPN",
         "annotations": [
           {
@@ -4191,10 +4013,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "__PBI_SemanticLinks",
-            "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
           }
         ],
         "columns": [
@@ -4204,10 +4022,6 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "__PBI_SemanticLinks",
-                "value": "[{\"LinkTarget\":{\"TableName\":\"Deliveries\",\"TableItemName\":\"hub_name (clusters)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
               }
             ],
             "dataType": "string",
