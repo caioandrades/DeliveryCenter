@@ -8,7 +8,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.124.1554.0 (23.12)"
+        "value": "2.126.1261.0 (24.02)"
       },
       {
         "name": "PBI_QueryOrder",
@@ -83,6 +83,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
           }
         ],
         "columns": [
@@ -577,7 +581,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origem = Sql.Database(\"localhost:1433\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_ORDERS\"]),",
+                "    Origem = Sql.Database(\"localhost\", \"master\", [Query=\"SELECT * FROM DELIVERY.V_ORDERS\"]),",
                 "    #\"Linhas Filtradas\" = Table.SelectRows(Origem, each true),",
                 "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Linhas Filtradas\",{{\"horas\", type time}, {\"date\", type date}})",
                 "in",
